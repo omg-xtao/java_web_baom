@@ -4,11 +4,11 @@ import com.dao.StuDao;
 import com.db.ConnectionFactory;
 import com.entity.Stu;
 import com.entity.mapper.StuMapper;
+import com.mybatisflex.core.query.QueryWrapper;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.ArrayList;
+
+import static com.entity.table.StuTableDef.STU;
 
 /**
  * @author xtaod
@@ -27,7 +27,10 @@ public class StuDaoImpl implements StuDao {
 
     @Override
     public Stu findByUsername(String username) {
-        return null;
+        QueryWrapper qw = new QueryWrapper();
+        qw.select(STU.ALL_COLUMNS)
+                .where(STU.USERNAME.eq(username));
+        return mapper.selectOneByQuery(qw);
     }
 
     @Override
