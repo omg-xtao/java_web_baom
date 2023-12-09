@@ -1,0 +1,75 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <filter>
+    <filter-name>EncodeFilter</filter-name>
+    <filter-class>com.filter.EncodeFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>StuFilter</filter-name>
+    <filter-class>com.filter.StuFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>AdminFilter</filter-name>
+    <filter-class>com.filter.AdminFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>ZAdminFilter</filter-name>
+    <filter-class>com.filter.ZAdminFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>JAdminFilter</filter-name>
+    <filter-class>com.filter.JAdminFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>SAdminFilter</filter-name>
+    <filter-class>com.filter.SAdminFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>EncodeFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>StuFilter</filter-name>
+    <url-pattern>/stu/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>StuFilter</filter-name>
+    <url-pattern>/includes/stu/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AdminFilter</filter-name>
+    <url-pattern>/admin/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AdminFilter</filter-name>
+    <url-pattern>/includes/admin/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>ZAdminFilter</filter-name>
+    <url-pattern>/zadmin/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>ZAdminFilter</filter-name>
+    <url-pattern>/includes/zadmin/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>JAdminFilter</filter-name>
+    <url-pattern>/jadmin/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>JAdminFilter</filter-name>
+    <url-pattern>/includes/jadmin/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>SAdminFilter</filter-name>
+    <url-pattern>/sadmin/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>SAdminFilter</filter-name>
+    <url-pattern>/includes/sadmin/*</url-pattern>
+  </filter-mapping>
+</web-app>
