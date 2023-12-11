@@ -35,7 +35,11 @@ public class StuDaoImpl implements StuDao {
 
     @Override
     public Stu validateLogin(String username, String password) {
-        return null;
+        QueryWrapper qw = new QueryWrapper();
+        qw.select(STU.ALL_COLUMNS)
+                .where(STU.USERNAME.eq(username))
+                .and(STU.PASSWORD.eq(password));
+        return mapper.selectOneByQuery(qw);
     }
 
     @Override
