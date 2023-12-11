@@ -1,7 +1,10 @@
 package com.servlet;
 
+import com.dao.RecordDao;
 import com.dao.StuDao;
+import com.dao.impl.RecordDaoImpl;
 import com.dao.impl.StuDaoImpl;
+import com.entity.Record;
 import com.util.Encrypt;
 
 import javax.servlet.ServletException;
@@ -22,7 +25,7 @@ public class StuLogin extends HttpServlet {
         response.setContentType("text/html; charset=utf-8");
         HttpSession session = request.getSession();
         StuDao stuDao = new StuDaoImpl();
-//        RecordDao recordDao = new RecordDaoImpl();
+        RecordDao recordDao = new RecordDaoImpl();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String code = request.getParameter("code");
@@ -42,17 +45,17 @@ public class StuLogin extends HttpServlet {
                 request.setAttribute("stuLoginMess", "* 用户名或密码输入错误！");
                 request.getRequestDispatcher("/index.jsp").forward(request, response);
             }else {
-//                Record record = new Record();
-//                record.setLogname(username);
-//                record.setUsergroup("学生");
-//                record.setLogip(request.getRemoteAddr());
-//                if (recordDao.add(record) != 0) {
+                Record record = new Record();
+                record.setLogname(username);
+                record.setUsergroup("学生");
+                record.setLogip(request.getRemoteAddr());
+                if (recordDao.add(record) != 0) {
                     session.setAttribute("username", username);
                     response.sendRedirect(request.getContextPath() + "/stu/notice.jsp");
-//                } else {
-//                    request.setAttribute("stuLoginMess", "* 登录异常！");
-//                    request.getRequestDispatcher("/index.jsp").forward(request, response);
-//                }
+                } else {
+                    request.setAttribute("stuLoginMess", "* 登录异常！");
+                    request.getRequestDispatcher("/index.jsp").forward(request, response);
+                }
             }
         }
     }
