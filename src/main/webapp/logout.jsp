@@ -13,7 +13,8 @@
 <body>
 <%
     session.invalidate();
-    response.sendRedirect("index.jsp");
+    request.setAttribute("stuLoginMess", "* 你已退出登录！");
+    request.getRequestDispatcher("/index.jsp").forward(request, response);
 %>
 </body>
 </html>
