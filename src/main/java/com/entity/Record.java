@@ -3,6 +3,7 @@ package com.entity;
 import com.mybatisflex.annotation.*;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  * @author xtaod
@@ -16,7 +17,7 @@ public class Record {
     private String usergroup;
 
     @Column(onInsertValue = "now()")
-    private Date logtime;
+    private Timestamp logtime;
     private String logip;
 
     public int getRid() {
@@ -43,11 +44,11 @@ public class Record {
         this.usergroup = usergroup;
     }
 
-    public Date getLogtime() {
+    public Timestamp getLogtime() {
         return logtime;
     }
 
-    public void setLogtime(Date logtime) {
+    public void setLogtime(Timestamp logtime) {
         this.logtime = logtime;
     }
 

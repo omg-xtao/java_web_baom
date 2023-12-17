@@ -1,21 +1,24 @@
 package com.util;
 
+import com.entity.Record;
+
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
  * @author xtaod
  */
-public class PageModel<T> implements Serializable {
+public class PageModel implements Serializable {
     private static final long serialVersionUID = 1L;
     private final int pageSize;		//每页显示的记录数
     private final int pageNo;			//当前页次
     private final int recordCount;		//记录总数
     private final int pageCount;			//分页总数
-    private final List<T> data;			//当前页记录集列表
+    private final List<Record> data;			//当前页记录集列表
     private String pageNav;			//翻页导航的HTML实现
 
-    public PageModel(int pageSize, int pageNo, List<T> data) {
+    public PageModel(int pageSize, int pageNo, List<Record> data) {
         if(pageSize < 1){
             this.pageSize = 10;
         }else {
@@ -81,7 +84,31 @@ public class PageModel<T> implements Serializable {
         this.pageNav = sb.toString();
     }
 
-    public List<T> getData() {
+    public String getContent() {
+        StringBuilder s = new StringBuilder();
+        s.append("<table>");
+        s.append("<tr>\n");
+        s.append("<th>序号</th>\n");
+        s.append("<th>登录名</th>\n");
+        s.append("<th>用户组</th>\n");
+        s.append("<th>登录时间</th>\n");
+        s.append("<th>登录IP</th>\n");
+        s.append("</tr>\n");
+        int fromIndex = (this.pageNo - 1) * this.pageSize;
+        for(int i = 0; i < data.size(); i++){
+            s.append("<tr>\n");
+            s.append("<td>").append(fromIndex + i + 1).append("</td>\n");
+            s.append("<td>").append(data.get(i).getLogname()).append("</td>\n");
+            s.append("<td>").append(data.get(i).getUsergroup()).append("</td>\n");
+            s.append("<td>").append(data.get(i).getLogtime()).append("</td>\n");
+            s.append("<td>").append(data.get(i).getLogip()).append("</td>\n");
+            s.append("</tr>\n");
+        }
+        s.append("</table>");
+        return s.toString();
+    }
+
+    public List<Record> getData() {
         return data;
     }
 

@@ -8,5 +8,5 @@ import com.util.PageModel;
  */
 public interface RecordDao {
     int add(Record record);
-    PageModel<Record> pageByLogname(String logname, String usergroup, int pageSize, int pageNo);
+    PageModel pageByLogname(String logname, int pageSize, int pageNo);
 }
