@@ -44,7 +44,15 @@ public class StuDaoImpl implements StuDao {
 
     @Override
     public int passModify(String username, String newpass) {
-        return 0;
+        QueryWrapper qw = new QueryWrapper();
+        qw.select(STU.ALL_COLUMNS)
+                .where(STU.USERNAME.eq(username));
+        Stu s = mapper.selectOneByQuery(qw);
+        if (s == null) {
+            return 0;
+        }
+        s.setPassword(newpass);
+        return mapper.update(s);
     }
 
     @Override

@@ -20,7 +20,6 @@ import java.io.IOException;
 public class StuRegister extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
         HttpSession session = request.getSession();
         StuDao stuDao = new StuDaoImpl();
         String username = request.getParameter("username");
