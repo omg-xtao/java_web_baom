@@ -2,7 +2,6 @@ package com.entity;
 
 import com.mybatisflex.annotation.*;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
