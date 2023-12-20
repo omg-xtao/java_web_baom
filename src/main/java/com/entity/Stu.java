@@ -2,6 +2,8 @@ package com.entity;
 
 import com.mybatisflex.annotation.*;
 
+import java.sql.Timestamp;
+
 /**
  * @author xtaod
  */
@@ -14,7 +16,9 @@ public class Stu {
     private String username;    //用户名
     private String password;    //密码
     private String regip;    //注册IP
-    private String regtime;    //注册时间
+
+    @Column(onInsertValue = "now()")
+    private Timestamp regtime;    //注册时间
 
     public int getUserid() {
         return userid;
@@ -48,12 +52,11 @@ public class Stu {
         this.regip = regip;
     }
 
-    public String getRegtime() {
+    public Timestamp getRegtime() {
         return regtime;
     }
 
-    public void setRegtime(String regtime) {
+    public void setRegtime(Timestamp regtime) {
         this.regtime = regtime;
     }
-
 }

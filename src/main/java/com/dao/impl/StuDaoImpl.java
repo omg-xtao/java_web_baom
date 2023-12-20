@@ -57,7 +57,10 @@ public class StuDaoImpl implements StuDao {
 
     @Override
     public ArrayList<Stu> findStusLikeUsername(String username) {
-        return null;
+        QueryWrapper qw = new QueryWrapper();
+        qw.select(STU.ALL_COLUMNS)
+                .where(STU.USERNAME.like(username));
+        return (ArrayList<Stu>) mapper.selectListByQuery(qw);
     }
 
     @Override
