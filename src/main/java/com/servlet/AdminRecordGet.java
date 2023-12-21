@@ -32,7 +32,8 @@ public class AdminRecordGet extends HttpServlet {
         int pageNo = 1;
         try {
             pageNo = Integer.parseInt(pageNoS);
-        } catch (NumberFormatException ignored) {}
+        } catch (NumberFormatException ignored) {
+        }
         PageModel page = recordDao.pageByLogname(user.getAdminname(), user.getAdmingroup(), 10, pageNo);
         page.setPageNav("record.do");
         PrintWriter out = response.getWriter();

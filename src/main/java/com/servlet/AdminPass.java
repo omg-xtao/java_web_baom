@@ -20,7 +20,7 @@ import java.io.IOException;
 public class AdminPass extends HttpServlet {
     String jspPath = "/admin/pass.jsp";
 
-    private void forward(HttpServletRequest request, HttpServletResponse response , String message) throws ServletException, IOException {
+    private void forward(HttpServletRequest request, HttpServletResponse response, String message) throws ServletException, IOException {
         request.setAttribute("adminPassMess", message);
         request.getRequestDispatcher(jspPath).forward(request, response);
     }

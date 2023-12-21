@@ -47,7 +47,9 @@
                     <td>${stage.starttime}</td>
                     <td>${stage.endtime}</td>
                     <td>${stage.note}</td>
-                    <td style="width:40px;"><a href="${webroot}/sadmin/stageadd.do?action=stageDelete&stagenum=${stage.stagenum}">删除</a></td>
+                    <td style="width:40px;"><a
+                            href="${webroot}/sadmin/stageadd.do?action=stageDelete&stagenum=${stage.stagenum}">删除</a>
+                    </td>
                 </tr>
             </c:forEach>
         </table>
@@ -61,28 +63,28 @@
             <table>
                 <tr>
                     <td class="label">阶段编号：</td>
-                    <td><input type="text" name="stagenum" id="stagenum" /></td>
+                    <td><input type="text" name="stagenum" id="stagenum"/></td>
                 </tr>
                 <tr>
                     <td class="label">阶段名称：</td>
-                    <td><input type="text" name="stagename" id="stagename" /></td>
+                    <td><input type="text" name="stagename" id="stagename"/></td>
                 </tr>
                 <tr>
                     <td class="label">开始时间：</td>
-                    <td><input type="datetime-local" name="starttime" id="starttime" /></td>
+                    <td><input type="datetime-local" name="starttime" id="starttime"/></td>
                 </tr>
                 <tr>
                     <td class="label">结束时间：</td>
-                    <td><input type="datetime-local" name="endtime" id="endtime" /></td>
+                    <td><input type="datetime-local" name="endtime" id="endtime"/></td>
                 </tr>
                 <tr>
                     <td class="label">阶段说明：</td>
-                    <td><input type="text" name="note" id="note" /></td>
+                    <td><input type="text" name="note" id="note"/></td>
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <input type="submit" value="提 交" class="button" id="submit" />
-                        <input type="reset" value="重 置" class="button" id="reset" />
+                        <input type="submit" value="提 交" class="button" id="submit"/>
+                        <input type="reset" value="重 置" class="button" id="reset"/>
                     </td>
                 </tr>
             </table>

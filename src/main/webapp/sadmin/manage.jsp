@@ -42,8 +42,11 @@
                     <td>${rows.count}</td>
                     <td>${adminuser.adminname}</td>
                     <td>${adminuser.admingroup}</td>
-                    <td><a href="${webroot}/sadmin/manage.do?action=passReset&adminname=${adminuser.adminname}">密码清零</a></td>
-                    <td><a href="${webroot}/sadmin/manage.do?action=deleteByAdminname&adminname=${adminuser.adminname}">删除</a></td>
+                    <td>
+                        <a href="${webroot}/sadmin/manage.do?action=passReset&adminname=${adminuser.adminname}">密码清零</a>
+                    </td>
+                    <td><a href="${webroot}/sadmin/manage.do?action=deleteByAdminname&adminname=${adminuser.adminname}">删除</a>
+                    </td>
                 </tr>
             </c:forEach>
         </table>
@@ -53,7 +56,8 @@
                 <table>
                     <tr>
                         <td class="label">用户名：</td>
-                        <td><input type="text" name="adminname" id="adminname" value="${requestScope.newadmin.adminname}"/></td>
+                        <td><input type="text" name="adminname" id="adminname"
+                                   value="${requestScope.newadmin.adminname}"/></td>
                         <td class="hint"> *用户名为英文字母、下划线或数字组合，长度为6-20位</td>
                     </tr>
                     <tr>
@@ -73,8 +77,8 @@
                     </tr>
                     <tr>
                         <td colspan="3">
-                            <input type="submit" value="提 交" class="button" id="submit" />
-                            <input type="reset" value="重 置" class="button" id="reset" />
+                            <input type="submit" value="提 交" class="button" id="submit"/>
+                            <input type="reset" value="重 置" class="button" id="reset"/>
                         </td>
                     </tr>
                 </table>

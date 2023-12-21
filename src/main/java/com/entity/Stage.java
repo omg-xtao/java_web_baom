@@ -7,7 +7,7 @@ import java.sql.Timestamp;
 /**
  * @author xtaod
  */
-@Table(value = "stage", dataSource="eers")
+@Table(value = "stage", dataSource = "eers")
 public class Stage {
     private int stagenum;
     private String stagename;

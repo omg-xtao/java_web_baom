@@ -32,13 +32,13 @@
                 <table>
                     <tr>
                         <td class="label">用户名：</td>
-                        <td><input type="text" name="username" id="username" /></td>
+                        <td><input type="text" name="username" id="username"/></td>
                         <td class="hint"> *用户名为英文字母、下划线或数字组合，长度为6-20位</td>
                     </tr>
                     <tr>
                         <td colspan="3">
-                            <input type="submit" value="查 找" class="button" />
-                            <input type="reset" value="重 置" class="button"  />
+                            <input type="submit" value="查 找" class="button"/>
+                            <input type="reset" value="重 置" class="button"/>
                         </td>
                     </tr>
                 </table>
@@ -54,8 +54,8 @@
                     </tr>
                     <tr>
                         <td colspan="3">
-                            <input type="submit" value="提 交" class="button" />
-                            <input type="reset" value="重 置" class="button" />
+                            <input type="submit" value="提 交" class="button"/>
+                            <input type="reset" value="重 置" class="button"/>
                         </td>
                     </tr>
                 </table>

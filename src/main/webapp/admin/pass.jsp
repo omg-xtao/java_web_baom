@@ -32,7 +32,9 @@
             <td class="label">验证码：</td>
             <td><input style="width: 65px;" type="text" name="code" id="code">
 
-            <td><img src="${pageContext.request.contextPath}/includes/code.jsp" id="imagecode" title="点击图片可刷新验证码" onclick="this.src='${pageContext.request.contextPath}/includes/code.jsp?'+Math.random()"></td>
+            <td><img src="${pageContext.request.contextPath}/includes/code.jsp" id="imagecode"
+                     title="点击图片可刷新验证码"
+                     onclick="this.src='${pageContext.request.contextPath}/includes/code.jsp?'+Math.random()"></td>
             <td class="hint">*</td>
         </tr>
         <tr>

@@ -20,7 +20,7 @@ import java.io.IOException;
 public class StuPass extends HttpServlet {
     String jspPath = "/stu/pass.jsp";
 
-    private void forward(HttpServletRequest request, HttpServletResponse response , String message) throws ServletException, IOException {
+    private void forward(HttpServletRequest request, HttpServletResponse response, String message) throws ServletException, IOException {
         request.setAttribute("stuPassMess", message);
         request.getRequestDispatcher(jspPath).forward(request, response);
     }

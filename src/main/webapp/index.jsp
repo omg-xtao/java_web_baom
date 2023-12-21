@@ -58,13 +58,16 @@
                         <td class="label">验证码：</td>
                         <td><input style="width: 65px;" type="text" name="code" id="code">
 
-                        <td><img src="${pageContext.request.contextPath}/includes/code.jsp" id="imagecode" title="点击图片可刷新验证码" onclick="this.src='${pageContext.request.contextPath}/includes/code.jsp?'+Math.random()"></td>
+                        <td><img src="${pageContext.request.contextPath}/includes/code.jsp" id="imagecode"
+                                 title="点击图片可刷新验证码"
+                                 onclick="this.src='${pageContext.request.contextPath}/includes/code.jsp?'+Math.random()">
+                        </td>
                         <td class="hint">*</td>
                     </tr>
                     <tr>
                         <td colspan="3">
-                            <input type="submit" value="登录系统" class="button" id="submit" />
-                            <input type="reset" value="重 置" class="button" id="reset" />
+                            <input type="submit" value="登录系统" class="button" id="submit"/>
+                            <input type="reset" value="重 置" class="button" id="reset"/>
                         </td>
                         <td class="hint">* 还没有账号，<a href="register.jsp">点此注册</a></td>
                     </tr>

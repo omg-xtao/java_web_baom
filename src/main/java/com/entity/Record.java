@@ -1,13 +1,16 @@
 package com.entity;
 
-import com.mybatisflex.annotation.*;
+import com.mybatisflex.annotation.Column;
+import com.mybatisflex.annotation.Id;
+import com.mybatisflex.annotation.KeyType;
+import com.mybatisflex.annotation.Table;
 
 import java.sql.Timestamp;
 
 /**
  * @author xtaod
  */
-@Table(value = "record", dataSource="eers")
+@Table(value = "record", dataSource = "eers")
 public class Record {
     @Id(keyType = KeyType.Auto)
     private int rid;    //记录ID

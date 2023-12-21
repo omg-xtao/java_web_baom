@@ -1,13 +1,8 @@
 package com;
 
-import com.dao.StuDao;
 import com.dao.impl.RecordDaoImpl;
-import com.dao.impl.StuDaoImpl;
 import com.entity.Record;
-import com.entity.Stu;
-import com.util.Encrypt;
 
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.List;
 

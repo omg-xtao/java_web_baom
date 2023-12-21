@@ -1,8 +1,8 @@
 package com.dao;
 
-import java.util.ArrayList;
-
 import com.entity.Stu;
+
+import java.util.ArrayList;
 
 public interface StuDao {
     public int add(Stu stu);

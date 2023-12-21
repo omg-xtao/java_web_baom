@@ -16,7 +16,7 @@ import static com.entity.table.StageTableDef.STAGE;
 public class StageDaoImpl implements StageDao {
     private static StageMapper mapper = null;
 
-    public StageDaoImpl () {
+    public StageDaoImpl() {
         mapper = ConnectionFactory.getMapper(StageMapper.class);
     }
 

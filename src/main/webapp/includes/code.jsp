@@ -1,4 +1,7 @@
-<%@ page import="java.awt.*" %><%@ page import="java.util.Random" %><%@ page import="java.awt.image.BufferedImage" %><%@ page import="javax.imageio.ImageIO" %>
+<%@ page import="java.awt.*" %>
+<%@ page import="java.util.Random" %>
+<%@ page import="java.awt.image.BufferedImage" %>
+<%@ page import="javax.imageio.ImageIO" %>
 <%@ page contentType="image/jpeg" %>
 
 <%!

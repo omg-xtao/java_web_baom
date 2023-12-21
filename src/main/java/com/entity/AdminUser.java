@@ -7,7 +7,7 @@ import com.mybatisflex.annotation.Table;
 /**
  * @author xtaod
  */
-@Table(value = "adminuser", dataSource="eers")
+@Table(value = "adminuser", dataSource = "eers")
 public class AdminUser {
     @Id(keyType = KeyType.Auto)
     private int adminid;    //用户ID

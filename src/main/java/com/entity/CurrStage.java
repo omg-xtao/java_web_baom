@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 /**
  * @author xtaod
  */
-@Table(value = "currstage", dataSource="eers")
+@Table(value = "currstage", dataSource = "eers")
 public class CurrStage {
     @Id(keyType = KeyType.Auto)
     private int configid;

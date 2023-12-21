@@ -3,7 +3,6 @@ package com.util;
 import com.entity.Record;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -11,24 +10,24 @@ import java.util.List;
  */
 public class PageModel implements Serializable {
     private static final long serialVersionUID = 1L;
-    private final int pageSize;		//每页显示的记录数
-    private final int pageNo;			//当前页次
-    private final int recordCount;		//记录总数
-    private final int pageCount;			//分页总数
-    private final List<Record> data;			//当前页记录集列表
-    private String pageNav;			//翻页导航的HTML实现
+    private final int pageSize;        //每页显示的记录数
+    private final int pageNo;            //当前页次
+    private final int recordCount;        //记录总数
+    private final int pageCount;            //分页总数
+    private final List<Record> data;            //当前页记录集列表
+    private String pageNav;            //翻页导航的HTML实现
 
     public PageModel(int pageSize, int pageNo, List<Record> data) {
-        if(pageSize < 1){
+        if (pageSize < 1) {
             this.pageSize = 10;
-        }else {
+        } else {
             this.pageSize = pageSize;
         }
         this.recordCount = data.size();
         this.pageCount = (recordCount + this.pageSize - 1) / this.pageSize;
-        if(pageNo < 1){
+        if (pageNo < 1) {
             this.pageNo = 1;
-        }else {
+        } else {
             this.pageNo = Math.min(pageNo, this.pageCount);
         }
         int fromIndex = (this.pageNo - 1) * this.pageSize;
@@ -36,10 +35,10 @@ public class PageModel implements Serializable {
         this.data = data.subList(fromIndex, toIndex);
     }
 
-    public void setPageNav(String url){
-        if(url.lastIndexOf('?') != - 1){
+    public void setPageNav(String url) {
+        if (url.lastIndexOf('?') != -1) {
             url += "&";
-        }else{
+        } else {
             url += "?";
         }
         StringBuilder sb = new StringBuilder();
@@ -50,7 +49,7 @@ public class PageModel implements Serializable {
             sb.append("pageNo=").append(1).append("&pageSize=").append(pageSize);
             sb.append("'>首页</a>&nbsp;&nbsp;");
             sb.append("<a href='").append(url);
-            sb.append("pageNo=").append(pageNo-1).append("&pageSize=");
+            sb.append("pageNo=").append(pageNo - 1).append("&pageSize=");
             sb.append(pageSize).append("'>上一页</a>&nbsp;&nbsp;");
         } else {
             sb.append("首页&nbsp;&nbsp;");
@@ -58,7 +57,7 @@ public class PageModel implements Serializable {
         }
         if (pageNo < pageCount && pageCount != 0) {
             sb.append("<a href='").append(url);
-            sb.append("pageNo=").append(pageNo+1).append("&pageSize=");
+            sb.append("pageNo=").append(pageNo + 1).append("&pageSize=");
             sb.append(pageSize).append("'>下一页</a>&nbsp;&nbsp;");
             sb.append("<a href='").append(url);
             sb.append("pageNo=").append(pageCount).append("&pageSize=");
@@ -68,13 +67,13 @@ public class PageModel implements Serializable {
             sb.append("尾页&nbsp;&nbsp;");
         }
         sb.append("跳转到第&nbsp;").append("<select>");
-        for(int i = 1; i <= pageCount; i++){
-            if(pageNo != i){
+        for (int i = 1; i <= pageCount; i++) {
+            if (pageNo != i) {
                 sb.append("<option onclick=\"location.href='").append(url);
-                        sb.append("pageNo=").append(i);
-            }else {
+                sb.append("pageNo=").append(i);
+            } else {
                 sb.append("<option selected='selected' onclick=\"location.href='");
-                        sb.append(url).append("pageNo=").append(i);
+                sb.append(url).append("pageNo=").append(i);
             }
             sb.append("&pageSize=").append(pageSize).append("';\">");
             sb.append("&nbsp;").append(i).append("/").append(pageCount);
@@ -95,7 +94,7 @@ public class PageModel implements Serializable {
         s.append("<th>登录IP</th>\n");
         s.append("</tr>\n");
         int fromIndex = (this.pageNo - 1) * this.pageSize;
-        for(int i = 0; i < data.size(); i++){
+        for (int i = 0; i < data.size(); i++) {
             s.append("<tr>\n");
             s.append("<td>").append(fromIndex + i + 1).append("</td>\n");
             s.append("<td>").append(data.get(i).getLogname()).append("</td>\n");

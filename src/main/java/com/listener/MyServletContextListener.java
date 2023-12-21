@@ -1,8 +1,10 @@
 package com.listener;
 
 import com.dao.CurrStageDao;
+import com.dao.SchoolDao;
 import com.dao.StageDao;
 import com.dao.impl.CurrStageDaoImpl;
+import com.dao.impl.SchoolDaoImpl;
 import com.dao.impl.StageDaoImpl;
 
 import javax.servlet.ServletContext;
@@ -20,8 +22,14 @@ public class MyServletContextListener implements ServletContextListener {
         servletContext.setAttribute("currstage", currStageDao.findCurrent());
     }
 
+    public void initSchool(ServletContext servletContext) {
+        SchoolDao schoolDao = new SchoolDaoImpl();
+        servletContext.setAttribute("school", schoolDao.getSchool());
+    }
+
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         initStage(sce.getServletContext());
+        initSchool(sce.getServletContext());
     }
 }

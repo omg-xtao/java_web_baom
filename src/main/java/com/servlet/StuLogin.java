@@ -33,18 +33,18 @@ public class StuLogin extends HttpServlet {
         request.setAttribute("password", password);
         request.setAttribute("code", code);
         String mess = validateForm(username, password, code);
-        if (!mess.isEmpty()){
+        if (!mess.isEmpty()) {
             request.setAttribute("stuLoginMess", mess);
             request.getRequestDispatcher("/index.jsp").forward(request, response);
-        }else {
+        } else {
             String sessioncode = session.getAttribute("sessioncode").toString();
             if (!code.equals(sessioncode)) {
                 request.setAttribute("stuLoginMess", "* 验证码错误！");
                 request.getRequestDispatcher("/index.jsp").forward(request, response);
-            }else if (stuDao.validateLogin(username, Encrypt.SHA(password)) == null) {
+            } else if (stuDao.validateLogin(username, Encrypt.SHA(password)) == null) {
                 request.setAttribute("stuLoginMess", "* 用户名或密码输入错误！");
                 request.getRequestDispatcher("/index.jsp").forward(request, response);
-            }else {
+            } else {
                 Record record = new Record();
                 record.setLogname(username);
                 record.setUsergroup("学生");

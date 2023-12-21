@@ -34,10 +34,10 @@ public class AdminLogin extends HttpServlet {
         request.setAttribute("password", password);
         request.setAttribute("code", code);
         String mess = validateForm(username, password, code);
-        if (!mess.isEmpty()){
+        if (!mess.isEmpty()) {
             request.setAttribute("adminLoginMess", mess);
             request.getRequestDispatcher("/manage.jsp").forward(request, response);
-        }else {
+        } else {
             String sessioncode = session.getAttribute("sessioncode").toString();
             if (!code.equals(sessioncode)) {
                 request.setAttribute("adminLoginMess", "* 验证码错误！");
@@ -48,7 +48,7 @@ public class AdminLogin extends HttpServlet {
             if (user == null) {
                 request.setAttribute("adminLoginMess", "* 用户名或密码输入错误！");
                 request.getRequestDispatcher("/manage.jsp").forward(request, response);
-            }else {
+            } else {
                 Record record = new Record();
                 record.setLogname(username);
                 record.setUsergroup(user.getAdmingroup());

@@ -19,9 +19,9 @@ public class IAdminFilter {
     ) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpSession session = req.getSession();
-        if(session != null && session.getAttribute("adminuser") != null) {
+        if (session != null && session.getAttribute("adminuser") != null) {
             AdminUser adminuser = (AdminUser) session.getAttribute("adminuser");
-            if(groupName.equals(adminuser.getAdmingroup()) || groupName.isEmpty()){
+            if (groupName.equals(adminuser.getAdmingroup()) || groupName.isEmpty()) {
                 chain.doFilter(request, response);
             } else {
                 req.setAttribute("adminLoginMess", "*您不是" + groupName + "，无法访问！");

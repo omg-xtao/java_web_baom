@@ -31,7 +31,8 @@ public class RecordGet extends HttpServlet {
         int pageNo = 1;
         try {
             pageNo = Integer.parseInt(pageNoS);
-        } catch (NumberFormatException ignored) {}
+        } catch (NumberFormatException ignored) {
+        }
         PageModel page = recordDao.pageByLogname(username, "学生", 10, pageNo);
         page.setPageNav("record.do");
         PrintWriter out = response.getWriter();
