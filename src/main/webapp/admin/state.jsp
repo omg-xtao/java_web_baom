@@ -38,7 +38,7 @@
     <c:when test="${ '招生管理员' eq sessionScope.adminuser.admingroup }">
     <div id="menu">
         <a href="${webroot}/admin/state.do">系统状态</a>
-        <a href="${webroot}/zadmin/stageset.do">阶段设置</a>
+        <a href="${webroot}/zadmin/stageset.jsp">阶段设置</a>
         <a href="${webroot}/zadmin/release.do">招考信息设置</a>
         <a href="${webroot}/admin/reginfomanage.do">查看报名信息</a>
         <a href="${webroot}/zadmin/confirm.do">现场确认</a>

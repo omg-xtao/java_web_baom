@@ -1,6 +1,8 @@
 package com.listener;
 
+import com.dao.CurrStageDao;
 import com.dao.StageDao;
+import com.dao.impl.CurrStageDaoImpl;
 import com.dao.impl.StageDaoImpl;
 
 import javax.servlet.ServletContext;
@@ -14,6 +16,8 @@ public class MyServletContextListener implements ServletContextListener {
     public void initStage(ServletContext servletContext) {
         StageDao stageDao = new StageDaoImpl();
         servletContext.setAttribute("stages", stageDao.findAll());
+        CurrStageDao currStageDao = new CurrStageDaoImpl();
+        servletContext.setAttribute("currstage", currStageDao.findCurrent());
     }
 
     @Override
