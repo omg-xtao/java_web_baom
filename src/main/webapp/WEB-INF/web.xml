@@ -72,4 +72,9 @@
     <filter-name>SAdminFilter</filter-name>
     <url-pattern>/includes/sadmin/*</url-pattern>
   </filter-mapping>
+  <listener>
+    <listener-class>
+      com.listener.CountListener
+    </listener-class>
+  </listener>
 </web-app>
