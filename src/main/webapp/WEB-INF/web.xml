@@ -77,4 +77,9 @@
       com.listener.CountListener
     </listener-class>
   </listener>
+  <listener>
+    <listener-class>
+      com.listener.MyServletContextListener
+    </listener-class>
+  </listener>
 </web-app>
