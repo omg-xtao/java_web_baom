@@ -1,13 +1,7 @@
 package com.listener;
 
-import com.dao.CurrStageDao;
-import com.dao.MajorDao;
-import com.dao.SchoolDao;
-import com.dao.StageDao;
-import com.dao.impl.CurrStageDaoImpl;
-import com.dao.impl.MajorDaoImpl;
-import com.dao.impl.SchoolDaoImpl;
-import com.dao.impl.StageDaoImpl;
+import com.dao.*;
+import com.dao.impl.*;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -34,11 +28,17 @@ public class MyServletContextListener implements ServletContextListener {
         servletContext.setAttribute("majors", majorDao.findAll());
     }
 
+    public void initCourse(ServletContext servletContext) {
+        CourseDao courseDao = new CourseDaoImpl();
+        servletContext.setAttribute("courses", courseDao.findAll());
+    }
+
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         ServletContext context = sce.getServletContext();
         initStage(context);
         initSchool(context);
         initMajor(context);
+        initCourse(context);
     }
 }

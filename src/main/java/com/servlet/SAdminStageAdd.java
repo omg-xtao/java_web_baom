@@ -12,16 +12,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.sql.Timestamp;
+
+import static com.util.TimeUtil.formDataToTimestamp;
 
 /**
  * @author xtaod
  */
 @WebServlet("/sadmin/stageadd.do")
 public class SAdminStageAdd extends HttpServlet {
-    private Timestamp parseTime(String form) {
-        return Timestamp.valueOf(form.replace('T', ' ') + ":00");
-    }
 
     private void stageAdd(StageDao stageDao, HttpServletRequest request, HttpServletResponse response) throws IOException {
         ServletContext servletContext = request.getServletContext();
@@ -30,8 +28,8 @@ public class SAdminStageAdd extends HttpServlet {
         Stage stage = new Stage();
         stage.setStagenum(stagenum);
         stage.setStagename(request.getParameter("stagename"));
-        stage.setStarttime(parseTime(request.getParameter("starttime")));
-        stage.setEndtime(parseTime(request.getParameter("endtime")));
+        stage.setStarttime(formDataToTimestamp(request.getParameter("starttime")));
+        stage.setEndtime(formDataToTimestamp(request.getParameter("endtime")));
         stage.setNote(request.getParameter("note"));
         if (stageDao.findByStagenum(stagenum) != null) {
             session.setAttribute("mess", new Message("stageAddMess", "阶段编号不能重复！"));

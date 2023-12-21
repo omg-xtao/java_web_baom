@@ -124,6 +124,76 @@
                 </table>
             </form>
         </div>
+        <div class="operation">已添加的考试课程列表↓：
+            <span class="mess">
+                <c:if test="${'courseDeleteMess' eq sessionScope.mess.name}">${sessionScope.mess.content}</c:if>
+            </span>
+        </div>
+        <table>
+            <tr>
+                <th>序号</th>
+                <th>课程编号</th>
+                <th>课程名称</th>
+                <th>隶属专业</th>
+                <th>考试开始时间</th>
+                <th>考试结束时间</th>
+                <th>删除课程</th>
+            </tr>
+            <c:forEach items="${applicationScope.courses}" var="course" varStatus="rows">
+                <tr>
+                    <td>${rows.index + 1}</td>
+                    <td>${course.ccode}</td>
+                    <td>${course.cname}</td>
+                    <td>${course.cmname}</td>
+                    <td>${course.cstarttime}</td>
+                    <td>${course.cendtime}</td>
+                    <td><a href="${webroot}/zadmin/release.do?action=courseDelete&ccode=${course.ccode}">删除</a></td>
+                </tr>
+            </c:forEach>
+        </table>
+        <div class="operation">添加新课程↓：
+            <span class="mess">
+                <c:if test="${'courseAddMess' eq sessionScope.mess.name}">${sessionScope.mess.content}</c:if>
+            </span>
+        </div>
+        <div class="ft">
+            <form action="${webroot}/zadmin/release.do?action=courseAdd" method="post">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="tr">课程编号：</td>
+                        <td><input type="text" name="ccode" id="ccode"/></td>
+                    </tr>
+                    <tr>
+                        <td class="tr">课程名称：</td>
+                        <td><input type="text" name="cname" id="cname"/></td>
+                    </tr>
+                    <tr>
+                        <td class="tr">隶属专业：</td>
+                        <td>
+                            <select name="cmname" id="cmname">
+                                <c:forEach items="${applicationScope.majors}" var="major">
+                                    <option value="${major.mname}">${major.mname}</option>
+                                </c:forEach>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tr">考试开始时间：</td>
+                        <td><input type="datetime-local" name="cstarttime" id="cstarttime"/></td>
+                    </tr>
+                    <tr>
+                        <td class="tr">考试结束时间：</td>
+                        <td><input type="datetime-local" name="cendtime" id="cendtime"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <input type="submit" value="提 交" class="button"/>
+                            <input type="reset" value="重 置" class="button"/>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </div>
     <%@ include file="../includes/footer.jsp" %>
 </body>
