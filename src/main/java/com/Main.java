@@ -15,5 +15,6 @@ public class Main {
         RecordDaoImpl recordDao = new RecordDaoImpl();
         List<Record> r = recordDao.pageByLogname("mrwangzhe", "学生", 10, 1).getData();
         System.out.println(r.get(2).getLogtime().toString());
+        System.out.println(sdf.format(r.get(2).getLogtime()));
     }
 }

@@ -72,6 +72,58 @@
                 </table>
             </form>
         </div>
+        <div class="operation">已添加的专业列表↓：
+            <span class="mess">
+                <c:if test="${'majorDeleteMess' eq sessionScope.mess.name}">${sessionScope.mess.content}</c:if>
+            </span>
+        </div>
+        <table>
+            <tr>
+                <th>序号</th>
+                <th>专业代码</th>
+                <th>专业名称</th>
+                <th>计划录取人数</th>
+                <th>删除专业</th>
+            </tr>
+            <c:forEach items="${applicationScope.majors}" var="major" varStatus="rows">
+                <tr>
+                    <td>${rows.index + 1}</td>
+                    <td>${major.mcode}</td>
+                    <td>${major.mname}</td>
+                    <td>${major.plannum}</td>
+                    <td><a href="${webroot}/zadmin/release.do?action=majorDelete&mcode=${major.mcode}">删除</a></td>
+                </tr>
+            </c:forEach>
+        </table>
+        <div class="operation">添加新专业↓：
+            <span class="mess">
+                <c:if test="${'majorAddMess' eq sessionScope.mess.name}">${sessionScope.mess.content}</c:if>
+            </span>
+        </div>
+        <div class="ft">
+            <form action="${webroot}/zadmin/release.do?action=majorAdd" method="post">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="tr">专业代码：</td>
+                        <td><input type="text" name="mcode" id="mcode"/></td>
+                    </tr>
+                    <tr>
+                        <td class="tr">专业名称：</td>
+                        <td><input type="text" name="mname" id="mname"/></td>
+                    </tr>
+                    <tr>
+                        <td class="tr">计划录取人数：</td>
+                        <td><input type="text" name="plannum" id="plannum"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <input type="submit" value="提 交" class="button"/>
+                            <input type="reset" value="重 置" class="button"/>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </div>
     <%@ include file="../includes/footer.jsp" %>
 </body>

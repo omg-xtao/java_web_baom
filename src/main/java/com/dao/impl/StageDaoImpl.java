@@ -28,7 +28,7 @@ public class StageDaoImpl implements StageDao {
     @Override
     public int deleteByStagenum(int stagenum) {
         QueryWrapper qw = new QueryWrapper();
-        qw.select(STAGE.ALL_COLUMNS).where(STAGE.STAGENUM.eq(stagenum));
+        qw.where(STAGE.STAGENUM.eq(stagenum));
         return mapper.deleteByQuery(qw);
     }
 

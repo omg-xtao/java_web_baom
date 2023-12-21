@@ -47,8 +47,7 @@ public class AdminUserDaoImpl implements AdminUserDao {
     @Override
     public int deleteByAdminname(String adminname) {
         QueryWrapper qw = new QueryWrapper();
-        qw.select(ADMIN_USER.ALL_COLUMNS)
-                .where(ADMIN_USER.ADMINNAME.eq(adminname));
+        qw.where(ADMIN_USER.ADMINNAME.eq(adminname));
         return mapper.deleteByQuery(qw);
     }
 

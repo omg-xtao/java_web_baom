@@ -1,9 +1,11 @@
 package com.listener;
 
 import com.dao.CurrStageDao;
+import com.dao.MajorDao;
 import com.dao.SchoolDao;
 import com.dao.StageDao;
 import com.dao.impl.CurrStageDaoImpl;
+import com.dao.impl.MajorDaoImpl;
 import com.dao.impl.SchoolDaoImpl;
 import com.dao.impl.StageDaoImpl;
 
@@ -27,9 +29,16 @@ public class MyServletContextListener implements ServletContextListener {
         servletContext.setAttribute("school", schoolDao.getSchool());
     }
 
+    public void initMajor(ServletContext servletContext) {
+        MajorDao majorDao = new MajorDaoImpl();
+        servletContext.setAttribute("majors", majorDao.findAll());
+    }
+
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        initStage(sce.getServletContext());
-        initSchool(sce.getServletContext());
+        ServletContext context = sce.getServletContext();
+        initStage(context);
+        initSchool(context);
+        initMajor(context);
     }
 }
