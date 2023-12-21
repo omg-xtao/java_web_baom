@@ -5,32 +5,18 @@ import com.mysql.cj.jdbc.MysqlDataSource;
 import org.apache.ibatis.session.Configuration;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.util.HashMap;
 
 /**
  * @author xtaod
  */
 public class ConnectionFactory {
-    public static final String DRIVER = "com.mysql.jdbc.Driver";
-    public static final String URL = "jdbc:mysql://114.132.198.201:3306/eers?useSSL=false";
+    public static final String URL = "jdbc:mysql://114.132.198.201:3306/eers?useSSL=false&serverTimezone=Asia/Shanghai";
     public static final String USER = "root";
     public static final String PASSWORD = "ved3ype-VHN9udv_gtz";
     public static MybatisFlexBootstrap bootstrap;
 
     public static HashMap<String, Object> mappers = new HashMap<>();
-
-    public static Connection getConnection() {
-        Connection conn = null;
-        try {
-            Class.forName(DRIVER);
-            conn = DriverManager.getConnection(URL, USER, PASSWORD);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return conn;
-    }
 
     public static DataSource getDataSource() {
         MysqlDataSource dataSource = new MysqlDataSource();

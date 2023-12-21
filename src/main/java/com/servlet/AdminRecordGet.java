@@ -2,6 +2,7 @@ package com.servlet;
 
 import com.dao.RecordDao;
 import com.dao.impl.RecordDaoImpl;
+import com.entity.AdminUser;
 import com.util.PageModel;
 
 import javax.servlet.annotation.WebServlet;
@@ -15,15 +16,15 @@ import java.io.PrintWriter;
 /**
  * @author xtaod
  */
-@WebServlet("/record.do")
-public class RecordGet extends HttpServlet {
+@WebServlet("/admin/record.do")
+public class AdminRecordGet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html; charset=utf-8");
         HttpSession session = request.getSession();
         RecordDao recordDao = new RecordDaoImpl();
-        String username = (String) session.getAttribute("username");
-        if (username == null) {
+        AdminUser user = (AdminUser) session.getAttribute("adminuser");
+        if (user == null) {
             response.sendRedirect("index.jsp");
             return;
         }
@@ -32,7 +33,7 @@ public class RecordGet extends HttpServlet {
         try {
             pageNo = Integer.parseInt(pageNoS);
         } catch (NumberFormatException ignored) {}
-        PageModel page = recordDao.pageByLogname(username, "学生", 10, pageNo);
+        PageModel page = recordDao.pageByLogname(user.getAdminname(), user.getAdmingroup(), 10, pageNo);
         page.setPageNav("record.do");
         PrintWriter out = response.getWriter();
         out.println("<!DOCTYPE html>");

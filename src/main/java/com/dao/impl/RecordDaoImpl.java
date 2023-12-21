@@ -27,10 +27,11 @@ public class RecordDaoImpl implements RecordDao {
     }
 
     @Override
-    public PageModel pageByLogname(String logname, int pageSize, int pageNo) {
+    public PageModel pageByLogname(String logname, String group, int pageSize, int pageNo) {
         QueryWrapper qw = new QueryWrapper();
         qw.select(RECORD.ALL_COLUMNS)
-                .where(RECORD.LOGNAME.eq(logname));
+                .where(RECORD.LOGNAME.eq(logname))
+                .where(RECORD.USERGROUP.eq(group));
         List<Record> recordsList = mapper.selectListByQuery(qw);
         return new PageModel(pageSize, pageNo, recordsList);
     }
