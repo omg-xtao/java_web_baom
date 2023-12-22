@@ -3,12 +3,12 @@ package com.servlet;
 import com.dao.CurrStageDao;
 import com.dao.impl.CurrStageDaoImpl;
 import com.entity.AdminUser;
+import com.util.HttpServletInit;
 import com.util.Message;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -18,7 +18,7 @@ import java.io.IOException;
  * @author xtaod
  */
 @WebServlet("/zadmin/stageset.do")
-public class ZAdminStageSet extends HttpServlet {
+public class ZAdminStageSet extends HttpServletInit {
     private void stageSet(CurrStageDao currstageDao, HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
         ServletContext servletContext = request.getServletContext();
@@ -26,7 +26,7 @@ public class ZAdminStageSet extends HttpServlet {
         String adminname = adminuser.getAdminname();
         String currstage = request.getParameter("currstage");
         if (currstageDao.set(adminname, currstage) != 0) {
-            servletContext.setAttribute("currstage", currstageDao.findCurrent());
+            initStage(request);
             session.setAttribute("mess", new Message("stageSetMess", "阶段设置成功！"));
         } else {
             session.setAttribute("mess", new Message("stageSetMess", "阶段设置失败！"));

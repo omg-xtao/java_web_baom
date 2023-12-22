@@ -3,11 +3,11 @@ package com.servlet;
 import com.dao.StageDao;
 import com.dao.impl.StageDaoImpl;
 import com.entity.Stage;
+import com.util.HttpServletInit;
 import com.util.Message;
 
 import javax.servlet.ServletContext;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -19,7 +19,7 @@ import static com.util.TimeUtil.formDataToTimestamp;
  * @author xtaod
  */
 @WebServlet("/sadmin/stageadd.do")
-public class SAdminStageAdd extends HttpServlet {
+public class SAdminStageAdd extends HttpServletInit {
 
     private void stageAdd(StageDao stageDao, HttpServletRequest request, HttpServletResponse response) throws IOException {
         ServletContext servletContext = request.getServletContext();
@@ -34,7 +34,7 @@ public class SAdminStageAdd extends HttpServlet {
         if (stageDao.findByStagenum(stagenum) != null) {
             session.setAttribute("mess", new Message("stageAddMess", "阶段编号不能重复！"));
         } else if (stageDao.add(stage) != 0) {
-            servletContext.setAttribute("stages", stageDao.findAll());
+            initStage(request);
             session.setAttribute("mess", new Message("stageAddMess", "添加阶段成功！"));
         } else {
             session.setAttribute("mess", new Message("stageAddMess", "添加阶段失败"));
@@ -47,7 +47,7 @@ public class SAdminStageAdd extends HttpServlet {
         HttpSession session = request.getSession();
         int stagenum = Integer.parseInt(request.getParameter("stagenum"));
         if (stageDao.deleteByStagenum(stagenum) != 0) {
-            servletContext.setAttribute("stages", stageDao.findAll());
+            initStage(request);
             session.setAttribute("mess", new Message("stageDeleteMess", "阶段删除成功！"));
         } else {
             session.setAttribute("mess", new Message("stageDeleteMess", "阶段删除失败！"));

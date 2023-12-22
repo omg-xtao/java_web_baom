@@ -34,7 +34,7 @@
         <div class="ft">
             <form method="post" action="${pageContext.request.contextPath}/stu/entry.do?action=entry">
                 <fieldset>
-                    <legend> 报考信息 </legend>
+                    <legend> 报考信息</legend>
                     <table>
                         <tr>
                             <td class="label">报考专业：</td>
@@ -57,7 +57,7 @@
                     </table>
                 </fieldset>
                 <fieldset>
-                    <legend> 个人基本信息 </legend>
+                    <legend> 个人基本信息</legend>
                     <table>
                         <tr>
                             <td class="label">姓名：</td>
@@ -82,40 +82,48 @@
                         </tr>
                         <tr>
                             <td class="label">出生日期：</td>
-                            <td><input type="date" name="birthday" id="birthday" value="${requestScope.reginfo.birthday}"></td>
+                            <td><input type="date" name="birthday" id="birthday"
+                                       value="${requestScope.reginfo.birthday}"></td>
                         </tr>
                         <tr>
                             <td class="label">民族：</td>
-                            <td><input type="text" name="nation" id="nation" value="${requestScope.reginfo.nation}" ></td>
+                            <td><input type="text" name="nation" id="nation" value="${requestScope.reginfo.nation}">
+                            </td>
                         </tr>
                         <tr>
                             <td class="label">身份证号：</td>
-                            <td><input type="text" name="idcode" id="idcode" value="${requestScope.reginfo.idcode}" ></td>
+                            <td><input type="text" name="idcode" id="idcode" value="${requestScope.reginfo.idcode}">
+                            </td>
                         </tr>
                         <tr>
                             <td class="label">政治面貌：</td>
-                            <td><input type="text" name="political" id="political" value="${requestScope.reginfo.political}"></td>
+                            <td><input type="text" name="political" id="political"
+                                       value="${requestScope.reginfo.political}"></td>
                         </tr>
                         <tr>
                             <td class="label">生源地：</td>
-                            <td><input type="text" name="source" id="source" value="${requestScope.reginfo.source}"></td>
+                            <td><input type="text" name="source" id="source" value="${requestScope.reginfo.source}">
+                            </td>
                         </tr>
                         <tr>
                             <td class="label">家庭住址：</td>
-                            <td><input type="text" name="homeaddr" id="homeaddr" value="${requestScope.reginfo.homeaddr}"></td>
+                            <td><input type="text" name="homeaddr" id="homeaddr"
+                                       value="${requestScope.reginfo.homeaddr}"></td>
                         </tr>
                     </table>
                 </fieldset>
                 <fieldset>
-                    <legend> 教育背景 </legend>
+                    <legend> 教育背景</legend>
                     <table>
                         <tr>
                             <td class="label">毕业院校</td>
-                            <td><input type="text" name="school" id="school" value="${requestScope.reginfo.school}"></td>
+                            <td><input type="text" name="school" id="school" value="${requestScope.reginfo.school}">
+                            </td>
                         </tr>
                         <tr>
                             <td class="label">毕业时间</td>
-                            <td><input type="date" name="gradutetime" id="gradutetime" value="${requestScope.reginfo.gradutetime}"></td>
+                            <td><input type="date" name="gradutetime" id="gradutetime"
+                                       value="${requestScope.reginfo.gradutetime}"></td>
                         </tr>
                         <tr>
                             <td class="label">是否应届</td>
@@ -176,35 +184,40 @@
                     </table>
                 </fieldset>
                 <fieldset>
-                    <legend> 联系信息 </legend>
+                    <legend> 联系人信息</legend>
                     <table>
                         <tr>
-                            <td class="label">手机号</td>
-                            <td><input type="text" name="mobile" id="mobile" value="${requestScope.reginfo.mobile}"></td>
+                            <td class="label">收件人姓名</td>
+                            <td><input type="text" name="receiver" id="receiver"
+                                       value="${requestScope.reginfo.receiver}"></td>
                         </tr>
                         <tr>
-                            <td class="label">联系电话</td>
-                            <td><input type="text" name="telphone" id="telphone" value="${requestScope.reginfo.telphone}"></td>
+                            <td class="label">收信地址</td>
+                            <td><input type="text" name="conaddr" id="conaddr" value="${requestScope.reginfo.conaddr}">
+                            </td>
                         </tr>
                         <tr>
                             <td class="label">邮编</td>
-                            <td><input type="text" name="zipcode" id="zipcode" value="${requestScope.reginfo.zipcode}"></td>
+                            <td><input type="text" name="zipcode" id="zipcode" value="${requestScope.reginfo.zipcode}">
+                            </td>
                         </tr>
                         <tr>
-                            <td class="label">联系地址</td>
-                            <td><input type="text" name="conaddr" id="conaddr" value="${requestScope.reginfo.conaddr}"></td>
+                            <td class="label">手机号</td>
+                            <td><input type="text" name="mobile" id="mobile" value="${requestScope.reginfo.mobile}">
+                            </td>
                         </tr>
                         <tr>
-                            <td class="label">接收人</td>
-                            <td><input type="text" name="receiver" id="receiver" value="${requestScope.reginfo.receiver}"></td>
+                            <td class="label">备用电话</td>
+                            <td><input type="text" name="telphone" id="telphone"
+                                       value="${requestScope.reginfo.telphone}"></td>
                         </tr>
                     </table>
                 </fieldset>
                 <table>
                     <tr>
                         <td colspan="2">
-                            <input type="submit" value="保存并下一步" class="button" />
-                            <input type="reset" value="重置" class="button" />
+                            <input type="submit" value="保存并下一步" class="button"/>
+                            <input type="reset" value="重置" class="button"/>
                         </td>
                     </tr>
                 </table>

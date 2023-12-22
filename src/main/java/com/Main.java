@@ -1,11 +1,6 @@
 package com;
 
-import com.dao.impl.RecordDaoImpl;
-import com.entity.Record;
-
 import java.sql.Date;
-import java.text.SimpleDateFormat;
-import java.util.List;
 
 /**
  * @author xtaod

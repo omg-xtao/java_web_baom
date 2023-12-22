@@ -7,12 +7,11 @@ import com.dao.impl.StuDaoImpl;
 import com.entity.Reginfo;
 import com.entity.Stu;
 import com.util.BeanUtil;
+import com.util.HttpServletInit;
 import com.util.Message;
-import com.util.TimeUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -22,7 +21,7 @@ import java.io.IOException;
  * @author xtaod
  */
 @WebServlet("/stu/entry.do")
-public class StuEntry extends HttpServlet {
+public class StuEntry extends HttpServletInit {
     private void updateOrInsert(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
         ReginfoDao reginfoDao = new ReginfoDaoImpl();
         StuDao stuDao = new StuDaoImpl();
@@ -46,6 +45,7 @@ public class StuEntry extends HttpServlet {
         }
         HttpSession session = request.getSession();
         if (result != 0) {
+            initMajor(request);
             session.setAttribute("mess", new Message("stuEntryMess", "修改信息成功！"));
         } else {
             session.setAttribute("mess", new Message("stuEntryMess", "修改信息失败！"));

@@ -1,6 +1,7 @@
 package com.util;
 
 import com.entity.Record;
+import com.entity.Reginfo;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,29 +11,49 @@ import java.util.List;
  */
 public class PageModel implements Serializable {
     private static final long serialVersionUID = 1L;
-    private final int pageSize;        //每页显示的记录数
-    private final int pageNo;            //当前页次
-    private final int recordCount;        //记录总数
-    private final int pageCount;            //分页总数
-    private final List<Record> data;            //当前页记录集列表
-    private String pageNav;            //翻页导航的HTML实现
+    private int pageSize;        //每页显示的记录数
+    private int pageNo;            //当前页次
+    private int recordCount;        //记录总数
+    private int pageCount;            //分页总数
+    private List<Record> data;            //当前页记录集列表
+    private List<Reginfo> data2;
 
-    public PageModel(int pageSize, int pageNo, List<Record> data) {
+    private String pageNav;            //翻页导航的HTML实现
+    private int fromIndex;
+    private int toIndex;
+
+    public void init(int pageSize, int pageNo, int size) {
         if (pageSize < 1) {
             this.pageSize = 10;
         } else {
             this.pageSize = pageSize;
         }
-        this.recordCount = data.size();
+        this.recordCount = size;
         this.pageCount = (recordCount + this.pageSize - 1) / this.pageSize;
         if (pageNo < 1) {
             this.pageNo = 1;
         } else {
             this.pageNo = Math.min(pageNo, this.pageCount);
         }
-        int fromIndex = (this.pageNo - 1) * this.pageSize;
-        int toIndex = Math.min(this.pageNo * this.pageSize, this.recordCount);
-        this.data = data.subList(fromIndex, toIndex);
+        this.fromIndex = (this.pageNo - 1) * this.pageSize;
+        if (this.fromIndex < 0) {
+            this.fromIndex = 0;
+        }
+        this.toIndex = Math.min(this.pageNo * this.pageSize, this.recordCount);
+        if (this.toIndex > size) {
+            this.toIndex = size;
+        }
+    }
+
+    public PageModel(int pageSize, int pageNo, List<Record> data) {
+        init(pageSize, pageNo, data.size());
+        this.data = data.subList(this.fromIndex, this.toIndex);
+    }
+
+    public PageModel(int pageSize, int pageNo, Object o, List<Reginfo> data2) {
+        init(pageSize, pageNo, data2.size());
+        this.data = null;
+        this.data2 = data2.subList(this.fromIndex, this.toIndex);
     }
 
     public void setPageNav(String url) {
@@ -109,6 +130,10 @@ public class PageModel implements Serializable {
 
     public List<Record> getData() {
         return data;
+    }
+
+    public List<Reginfo> getData2() {
+        return data2;
     }
 
     public String getPageNav() {

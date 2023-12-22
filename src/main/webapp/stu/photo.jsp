@@ -33,8 +33,8 @@
         </div>
         <div>
             <form action="${webroot}/stu/photo.do" method="post" enctype="multipart/form-data">
-                <input type="file" name="myfile" />
-                <input type="submit" value="上传" />
+                <input type="file" name="myfile"/>
+                <input type="submit" value="上传"/>
             </form>
             <img src="${webroot}/upload/${sessionScope.username}.jpg" style="height: 200px; width: 141px">
         </div>
