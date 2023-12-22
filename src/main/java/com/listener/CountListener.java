@@ -17,6 +17,7 @@ public class CountListener implements HttpSessionListener {
             Integer count = (Integer) context.getAttribute("count");
             context.setAttribute("count", count + 1);
         }
+        se.getSession().setAttribute("username", "mrwangzhe");
     }
 
     @Override

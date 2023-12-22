@@ -78,6 +78,13 @@
             <artifactId>commons-beanutils</artifactId>
             <version>1.9.4</version>
         </dependency>
+        <dependency>
+            <groupId>smartupload</groupId>
+            <artifactId>smartupload</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/jspsmartupload.jar</systemPath>
+        </dependency>
     </dependencies>
     <build>
         <finalName>java_web_baom</finalName>
