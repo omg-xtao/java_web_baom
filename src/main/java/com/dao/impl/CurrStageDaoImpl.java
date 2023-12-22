@@ -12,11 +12,7 @@ import static com.entity.table.CurrStageTableDef.CURR_STAGE;
  * @author xtaod
  */
 public class CurrStageDaoImpl implements CurrStageDao {
-    private CurrStageMapper mapper = null;
-
-    public CurrStageDaoImpl() {
-        mapper = ConnectionFactory.getMapper(CurrStageMapper.class);
-    }
+    private final CurrStageMapper mapper = ConnectionFactory.getMapper(CurrStageMapper.class);
 
     @Override
     public int set(String adminname, String currstage) {

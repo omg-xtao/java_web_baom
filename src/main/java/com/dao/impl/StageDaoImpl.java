@@ -14,11 +14,7 @@ import static com.entity.table.StageTableDef.STAGE;
  * @author xtaod
  */
 public class StageDaoImpl implements StageDao {
-    private static StageMapper mapper = null;
-
-    public StageDaoImpl() {
-        mapper = ConnectionFactory.getMapper(StageMapper.class);
-    }
+    private static final StageMapper mapper = ConnectionFactory.getMapper(StageMapper.class);
 
     @Override
     public int add(Stage stage) {

@@ -14,11 +14,7 @@ import static com.entity.table.MajorTableDef.MAJOR;
  * @author xtaod
  */
 public class MajorDaoImpl implements MajorDao {
-    private static MajorMapper mapper = null;
-
-    public MajorDaoImpl() {
-        mapper = ConnectionFactory.getMapper(MajorMapper.class);
-    }
+    private static final MajorMapper mapper = ConnectionFactory.getMapper(MajorMapper.class);
 
     @Override
     public int add(Major major) {

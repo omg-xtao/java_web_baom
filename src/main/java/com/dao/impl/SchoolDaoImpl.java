@@ -12,11 +12,7 @@ import static com.entity.table.SchoolTableDef.SCHOOL;
  * @author xtaod
  */
 public class SchoolDaoImpl implements SchoolDao {
-    private static SchoolMapper mapper = null;
-
-    public SchoolDaoImpl() {
-        mapper = ConnectionFactory.getMapper(SchoolMapper.class);
-    }
+    private static final SchoolMapper mapper = ConnectionFactory.getMapper(SchoolMapper.class);
 
     @Override
     public int add(School school) {

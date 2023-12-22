@@ -14,11 +14,7 @@ import static com.entity.table.AdminUserTableDef.ADMIN_USER;
  * @author xtaod
  */
 public class AdminUserDaoImpl implements AdminUserDao {
-    private static AdminUserMapper mapper = null;
-
-    public AdminUserDaoImpl() {
-        mapper = ConnectionFactory.getMapper(AdminUserMapper.class);
-    }
+    private static final AdminUserMapper mapper = ConnectionFactory.getMapper(AdminUserMapper.class);
 
     @Override
     public AdminUser validateLogin(String username, String password) {

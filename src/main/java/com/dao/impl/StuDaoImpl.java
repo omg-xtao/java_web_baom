@@ -14,11 +14,7 @@ import static com.entity.table.StuTableDef.STU;
  * @author xtaod
  */
 public class StuDaoImpl implements StuDao {
-    private static StuMapper mapper = null;
-
-    public StuDaoImpl() {
-        mapper = ConnectionFactory.getMapper(StuMapper.class);
-    }
+    private static final StuMapper mapper = ConnectionFactory.getMapper(StuMapper.class);
 
     @Override
     public int add(Stu stu) {

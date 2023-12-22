@@ -14,11 +14,7 @@ import static com.entity.table.CourseTableDef.COURSE;
  * @author xtaod
  */
 public class CourseDaoImpl implements CourseDao {
-    private static CourseMapper mapper = null;
-
-    public CourseDaoImpl() {
-        mapper = ConnectionFactory.getMapper(CourseMapper.class);
-    }
+    private static final CourseMapper mapper = ConnectionFactory.getMapper(CourseMapper.class);
 
     @Override
     public int add(Course course) {

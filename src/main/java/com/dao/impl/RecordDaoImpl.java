@@ -15,11 +15,7 @@ import static com.entity.table.RecordTableDef.RECORD;
  * @author xtaod
  */
 public class RecordDaoImpl implements RecordDao {
-    private static RecordMapper mapper = null;
-
-    public RecordDaoImpl() {
-        mapper = ConnectionFactory.getMapper(RecordMapper.class);
-    }
+    private static final RecordMapper mapper = ConnectionFactory.getMapper(RecordMapper.class);
 
     @Override
     public int add(Record stu) {
