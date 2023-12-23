@@ -20,4 +20,6 @@ public interface ReginfoDao {
     ArrayList<Reginfo> findByIdCode(String idCode);
 
     int confirmByUserName(String username);
+
+    ArrayList<Reginfo> findAll(Boolean isConfirm);
 }

@@ -65,4 +65,14 @@ public class ReginfoDaoImpl implements ReginfoDao {
         reginfo.setIsconfirm(true);
         return MAPPER.update(reginfo);
     }
+
+    @Override
+    public ArrayList<Reginfo> findAll(Boolean isConfirm) {
+        QueryWrapper qw = new QueryWrapper();
+        qw.select(REGINFO.ALL_COLUMNS);
+        if (isConfirm != null) {
+            qw.where(REGINFO.ISCONFIRM.eq(isConfirm));
+        }
+        return (ArrayList<Reginfo>) MAPPER.selectListByQuery(qw);
+    }
 }
