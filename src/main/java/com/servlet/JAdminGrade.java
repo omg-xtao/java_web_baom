@@ -1,7 +1,7 @@
 package com.servlet;
 
 import com.dao.GradeDao;
-import com.dao.impl.GradeImpl;
+import com.dao.impl.GradeDaoImpl;
 import com.entity.Grade;
 import com.jspsmart.upload.Files;
 import com.jspsmart.upload.SmartUpload;
@@ -54,7 +54,7 @@ public class JAdminGrade extends HttpServlet {
         int pageSize = request.getParameter("pageSize") == null ? 5 : Integer.parseInt(request.getParameter("pageSize"));
         int pageNo = request.getParameter("pageNo") == null ? 1 : Integer.parseInt(request.getParameter("pageNo"));
         if (grades == null) {
-            GradeDao gradeDao = new GradeImpl();
+            GradeDao gradeDao = new GradeDaoImpl();
             grades = gradeDao.queryAll();
             request.getSession().setAttribute("grades", grades);
         }
@@ -76,7 +76,7 @@ public class JAdminGrade extends HttpServlet {
         } catch (SmartUploadException e1) {
             e1.printStackTrace();
         }
-        GradeDao gradeDao = new GradeImpl();
+        GradeDao gradeDao = new GradeDaoImpl();
         XSSFWorkbook wb = getSheet(temp);
         temp.delete();
         XSSFSheet sheet = wb.getSheetAt(0);

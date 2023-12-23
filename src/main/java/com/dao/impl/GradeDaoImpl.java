@@ -15,7 +15,7 @@ import static com.entity.table.ReginfoTableDef.REGINFO;
 /**
  * @author xtaod
  */
-public class GradeImpl implements GradeDao {
+public class GradeDaoImpl implements GradeDao {
     private final GradeMapper mapper = ConnectionFactory.getMapper(GradeMapper.class);
 
     @Override

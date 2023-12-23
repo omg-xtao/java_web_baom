@@ -3,7 +3,7 @@ package com.servlet;
 import com.dao.GradeDao;
 import com.dao.MajorDao;
 import com.dao.ReginfoDao;
-import com.dao.impl.GradeImpl;
+import com.dao.impl.GradeDaoImpl;
 import com.dao.impl.MajorDaoImpl;
 import com.dao.impl.ReginfoDaoImpl;
 import com.entity.GradeVo;
@@ -60,7 +60,7 @@ public class ZAdminLine extends HttpServletInit {
             return;
         }
         MajorDao majorDao = new MajorDaoImpl();
-        GradeDao gradeDao = new GradeImpl();
+        GradeDao gradeDao = new GradeDaoImpl();
         Major major = majorDao.findByMcode(mcode);
         if (major == null) {
             return;

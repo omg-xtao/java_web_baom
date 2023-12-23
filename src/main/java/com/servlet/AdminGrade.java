@@ -1,7 +1,7 @@
 package com.servlet;
 
 import com.dao.GradeDao;
-import com.dao.impl.GradeImpl;
+import com.dao.impl.GradeDaoImpl;
 import com.entity.Grade;
 import com.util.Message;
 
@@ -22,7 +22,7 @@ public class AdminGrade extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String testCardNum = req.getParameter("testcardnum");
         String sname = req.getParameter("sname");
-        GradeDao gradeDao = new GradeImpl();
+        GradeDao gradeDao = new GradeDaoImpl();
         ArrayList<Grade> grades;
         if (testCardNum != null) {
             grades = gradeDao.findByTestcardnum(testCardNum);
