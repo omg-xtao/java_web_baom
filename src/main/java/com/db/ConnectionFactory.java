@@ -14,6 +14,7 @@ public class ConnectionFactory {
     public static final String URL = "jdbc:mysql://114.132.198.201:3306/eers?useSSL=false&serverTimezone=Asia/Shanghai";
     public static final String USER = "root";
     public static final String PASSWORD = "ved3ype-VHN9udv_gtz";
+    public static final String HOST = "114.132.198.201";
     public static MybatisFlexBootstrap bootstrap;
 
     public static HashMap<String, Object> mappers = new HashMap<>();

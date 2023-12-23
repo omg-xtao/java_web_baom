@@ -26,7 +26,7 @@
             <a href="${webroot}/admin/state.do">系统状态</a>
             <a href="${webroot}/sadmin/stageadd.do">阶段定义</a>
             <a href="${webroot}/sadmin/manage.do">管理员维护</a>
-            <a href="${webroot}/sadmin/db.do">数据库管理</a>
+            <a href="${webroot}/sadmin/db.jsp">数据库管理</a>
             <a href="${webroot}/admin/reginfomanage.do">查看报名信息</a>
             <a href="${webroot}/admin/grade.do">查看成绩信息</a>
             <a href="${webroot}/admin/record.do">我的登录历史</a>
