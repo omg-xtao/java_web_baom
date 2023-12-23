@@ -7,6 +7,7 @@ import com.dao.impl.StuDaoImpl;
 import com.entity.Reginfo;
 import com.entity.Stu;
 import com.util.BeanUtil;
+import com.util.EntryGenXlsx;
 import com.util.HttpServletInit;
 import com.util.Message;
 
@@ -52,6 +53,10 @@ public class StuEntry extends HttpServletInit {
         }
         request.setAttribute("reginfo", reginfoDao.findByUser(username));
         request.getRequestDispatcher("/stu/entry.jsp").forward(request, resp);
+        if (result != 0 && reginfo.getPhoto() != null && !reginfo.getPhoto().isEmpty()) {
+            EntryGenXlsx entryGenXlsx = new EntryGenXlsx(getServletContext().getRealPath("/"), reginfo.getPhoto(), username);
+            entryGenXlsx.gen(reginfo, request);
+        }
     }
 
     @Override

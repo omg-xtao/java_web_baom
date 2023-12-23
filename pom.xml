@@ -7,6 +7,13 @@
     <version>1.0-SNAPSHOT</version>
     <name>java_web_baom Maven Webapp</name>
     <url>http://maven.apache.org</url>
+    <repositories>
+        <repository>
+            <id>e-iceblue-maven-public</id>
+            <name>E-iceblue Repository</name>
+            <url>https://repo.e-iceblue.cn/repository/maven-public/</url>
+        </repository>
+    </repositories>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -84,6 +91,22 @@
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/jspsmartupload.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>5.2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.2.5</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/e-iceblue/spire.xls.free -->
+        <dependency>
+            <groupId>e-iceblue</groupId>
+            <artifactId>spire.xls.free</artifactId>
+            <version>5.1.0</version>
         </dependency>
     </dependencies>
     <build>

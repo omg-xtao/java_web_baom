@@ -6,6 +6,7 @@ import com.entity.Reginfo;
 import com.jspsmart.upload.Files;
 import com.jspsmart.upload.SmartUpload;
 import com.jspsmart.upload.SmartUploadException;
+import com.util.EntryGenXlsx;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -48,5 +49,9 @@ public class StuPhoto extends HttpServlet {
             regDao.update(reginfo);
         }
         request.getRequestDispatcher("/stu/photo.jsp").forward(request, response);
+        if (reginfo != null && reginfo.getPhoto() != null && !reginfo.getPhoto().isEmpty()) {
+            EntryGenXlsx entryGenXlsx = new EntryGenXlsx(getServletContext().getRealPath("/"), reginfo.getPhoto(), username);
+            entryGenXlsx.gen(reginfo, request);
+        }
     }
 }

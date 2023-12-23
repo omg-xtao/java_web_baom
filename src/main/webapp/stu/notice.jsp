@@ -15,5 +15,8 @@
 <a href="${pageContext.request.contextPath}/record.do">我的登录历史</a><br/>
 <a href="${pageContext.request.contextPath}/stu/pass.jsp">修改密码</a><br/>
 <a href="${pageContext.request.contextPath}/logout.jsp">退出登录</a><br/>
+<a href="${pageContext.request.contextPath}/stu/entry.do">我的报名信息</a><br/>
+<a href="${pageContext.request.contextPath}/stu/photo.jsp">上传照片</a><br/>
+<a href="${pageContext.request.contextPath}/stu/entry_print.jsp">报名表打印</a><br/>
 </body>
 </html>
