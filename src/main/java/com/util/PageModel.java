@@ -1,5 +1,6 @@
 package com.util;
 
+import com.entity.Grade;
 import com.entity.Record;
 import com.entity.Reginfo;
 
@@ -17,6 +18,7 @@ public class PageModel implements Serializable {
     private int pageCount;            //分页总数
     private List<Record> data;            //当前页记录集列表
     private List<Reginfo> data2;
+    private List<Grade> data3;
 
     private String pageNav;            //翻页导航的HTML实现
     private int fromIndex;
@@ -54,6 +56,12 @@ public class PageModel implements Serializable {
         init(pageSize, pageNo, data2.size());
         this.data = null;
         this.data2 = data2.subList(this.fromIndex, this.toIndex);
+    }
+
+    public PageModel(int pageSize, int pageNo, Object o, Object o2, List<Grade> data3) {
+        init(pageSize, pageNo, data3.size());
+        this.data = null;
+        this.data3 = data3.subList(this.fromIndex, this.toIndex);
     }
 
     public void setPageNav(String url) {
@@ -134,6 +142,10 @@ public class PageModel implements Serializable {
 
     public List<Reginfo> getData2() {
         return data2;
+    }
+
+    public List<Grade> getData3() {
+        return data3;
     }
 
     public String getPageNav() {

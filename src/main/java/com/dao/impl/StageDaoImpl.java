@@ -30,9 +30,7 @@ public class StageDaoImpl implements StageDao {
 
     @Override
     public ArrayList<Stage> findAll() {
-        QueryWrapper qw = new QueryWrapper();
-        qw.select(STAGE.ALL_COLUMNS);
-        return (ArrayList<Stage>) mapper.selectListByQuery(qw);
+        return (ArrayList<Stage>) mapper.selectAll();
     }
 
     @Override

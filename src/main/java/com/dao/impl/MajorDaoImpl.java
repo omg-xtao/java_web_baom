@@ -30,9 +30,7 @@ public class MajorDaoImpl implements MajorDao {
 
     @Override
     public ArrayList<Major> findAll() {
-        QueryWrapper qw = new QueryWrapper();
-        qw.select(MAJOR.ALL_COLUMNS);
-        return (ArrayList<Major>) mapper.selectListByQuery(qw);
+        return (ArrayList<Major>) mapper.selectAll();
     }
 
     @Override

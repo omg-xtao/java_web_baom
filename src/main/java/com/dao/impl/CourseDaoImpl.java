@@ -30,9 +30,7 @@ public class CourseDaoImpl implements CourseDao {
 
     @Override
     public ArrayList<Course> findAll() {
-        QueryWrapper qw = new QueryWrapper();
-        qw.select(COURSE.ALL_COLUMNS);
-        return (ArrayList<Course>) mapper.selectListByQuery(qw);
+        return (ArrayList<Course>) mapper.selectAll();
     }
 
     @Override

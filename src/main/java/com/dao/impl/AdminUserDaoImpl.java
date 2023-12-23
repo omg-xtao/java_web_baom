@@ -27,9 +27,7 @@ public class AdminUserDaoImpl implements AdminUserDao {
 
     @Override
     public ArrayList<AdminUser> findAll() {
-        QueryWrapper qw = new QueryWrapper();
-        qw.select(ADMIN_USER.ALL_COLUMNS);
-        return (ArrayList<AdminUser>) mapper.selectListByQuery(qw);
+        return (ArrayList<AdminUser>) mapper.selectAll();
     }
 
     @Override
