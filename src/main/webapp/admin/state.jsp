@@ -41,7 +41,7 @@
             <a href="${webroot}/zadmin/stageset.jsp">阶段设置</a>
             <a href="${webroot}/zadmin/release.jsp">招考信息设置</a>
             <a href="${webroot}/admin/reginfomanage.do">查看报名信息</a>
-            <a href="${webroot}/zadmin/confirm.do">现场确认</a>
+            <a href="${webroot}/zadmin/confirm.jsp">现场确认</a>
             <a href="${webroot}/admin/grade.do">查看成绩信息</a>
             <a href="${webroot}/zadmin/line.do">设置录取分数线</a>
             <a href="${webroot}/zadmin/stumanage.jsp">学生密码清零</a>

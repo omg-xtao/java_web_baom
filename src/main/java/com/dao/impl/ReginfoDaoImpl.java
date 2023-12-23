@@ -7,6 +7,7 @@ import com.entity.mapper.ReginfoMapper;
 import com.mybatisflex.core.query.QueryWrapper;
 import com.util.PageModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.entity.table.ReginfoTableDef.REGINFO;
@@ -46,5 +47,22 @@ public class ReginfoDaoImpl implements ReginfoDao {
         }
         List<Reginfo> reginfosList = MAPPER.selectListByQuery(qw);
         return new PageModel(pageSize, pageNo, null, reginfosList);
+    }
+
+    @Override
+    public ArrayList<Reginfo> findByIdCode(String idCode) {
+        QueryWrapper qw = new QueryWrapper();
+        qw.select(REGINFO.ALL_COLUMNS).where(REGINFO.IDCODE.like(idCode));
+        return (ArrayList<Reginfo>) MAPPER.selectListByQuery(qw);
+    }
+
+    @Override
+    public int confirmByUserName(String username) {
+        Reginfo reginfo = findByUser(username);
+        if (reginfo == null) {
+            return 0;
+        }
+        reginfo.setIsconfirm(true);
+        return MAPPER.update(reginfo);
     }
 }
