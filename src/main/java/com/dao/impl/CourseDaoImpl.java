@@ -36,14 +36,14 @@ public class CourseDaoImpl implements CourseDao {
     @Override
     public Course findByCcode(String ccode) {
         QueryWrapper qw = new QueryWrapper();
-        qw.where(COURSE.CCODE.eq(ccode));
+        qw.select(COURSE.ALL_COLUMNS).where(COURSE.CCODE.eq(ccode));
         return mapper.selectOneByQuery(qw);
     }
 
     @Override
     public ArrayList<Course> findByCmname(String cmname) {
         QueryWrapper qw = new QueryWrapper();
-        qw.where(COURSE.CMNAME.eq(cmname));
+        qw.select(COURSE.ALL_COLUMNS).where(COURSE.CMNAME.eq(cmname));
         return (ArrayList<Course>) mapper.selectListByQuery(qw);
     }
 }

@@ -3,12 +3,14 @@ package com.dao.impl;
 import com.dao.GradeDao;
 import com.db.ConnectionFactory;
 import com.entity.Grade;
+import com.entity.GradeVo;
 import com.entity.mapper.GradeMapper;
 import com.mybatisflex.core.query.QueryWrapper;
 
 import java.util.ArrayList;
 
 import static com.entity.table.GradeTableDef.GRADE;
+import static com.entity.table.ReginfoTableDef.REGINFO;
 
 /**
  * @author xtaod
@@ -50,5 +52,15 @@ public class GradeImpl implements GradeDao {
         QueryWrapper qw = new QueryWrapper();
         qw.select(GRADE.ALL_COLUMNS).where(GRADE.SNAME.like(sname));
         return (ArrayList<Grade>) mapper.selectListByQuery(qw);
+    }
+
+    @Override
+    public ArrayList<GradeVo> findByMName(String mName) {
+        QueryWrapper qw = new QueryWrapper();
+        qw.select()
+                .from(GRADE)
+                .leftJoin(REGINFO).on(GRADE.TESTCARDNUM.eq(REGINFO.TESTCARDNUM))
+                .where(REGINFO.MNAME.eq(mName));
+        return (ArrayList<GradeVo>) mapper.selectListByQueryAs(qw, GradeVo.class);
     }
 }

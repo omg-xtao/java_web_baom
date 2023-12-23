@@ -22,6 +22,11 @@ public class MajorDaoImpl implements MajorDao {
     }
 
     @Override
+    public int update(Major major) {
+        return mapper.update(major);
+    }
+
+    @Override
     public int deleteByMcode(String mcode) {
         QueryWrapper qw = new QueryWrapper();
         qw.where(MAJOR.MCODE.eq(mcode));
@@ -36,7 +41,7 @@ public class MajorDaoImpl implements MajorDao {
     @Override
     public Major findByMcode(String mcode) {
         QueryWrapper qw = new QueryWrapper();
-        qw.where(MAJOR.MCODE.eq(mcode));
+        qw.select(MAJOR.ALL_COLUMNS).where(MAJOR.MCODE.eq(mcode));
         return mapper.selectOneByQuery(qw);
     }
 }

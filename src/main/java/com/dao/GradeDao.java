@@ -1,6 +1,7 @@
 package com.dao;
 
 import com.entity.Grade;
+import com.entity.GradeVo;
 
 import java.util.ArrayList;
 
@@ -19,4 +20,6 @@ public interface GradeDao {
     ArrayList<Grade> findByTestcardnum(String testCardNum);
 
     ArrayList<Grade> findBySname(String sname);
+
+    ArrayList<GradeVo> findByMName(String mName);
 }

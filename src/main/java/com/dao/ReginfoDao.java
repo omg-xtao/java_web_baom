@@ -22,4 +22,6 @@ public interface ReginfoDao {
     int confirmByUserName(String username);
 
     ArrayList<Reginfo> findAll(Boolean isConfirm);
+
+    ArrayList<Reginfo> findByMName(String mName);
 }

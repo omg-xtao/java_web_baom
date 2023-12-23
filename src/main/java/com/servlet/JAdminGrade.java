@@ -26,7 +26,6 @@ import java.util.ArrayList;
  */
 @WebServlet("/jadmin/gradeinput.do")
 public class JAdminGrade extends HttpServlet {
-    ArrayList<Grade> grades;
 
     private XSSFWorkbook getSheet(File file) {
         XSSFWorkbook wb = null;
@@ -51,11 +50,13 @@ public class JAdminGrade extends HttpServlet {
     }
 
     private PageModel createPageModel(HttpServletRequest request) {
+        ArrayList<Grade> grades = (ArrayList<Grade>) request.getSession().getAttribute("grades");
         int pageSize = request.getParameter("pageSize") == null ? 5 : Integer.parseInt(request.getParameter("pageSize"));
         int pageNo = request.getParameter("pageNo") == null ? 1 : Integer.parseInt(request.getParameter("pageNo"));
         if (grades == null) {
             GradeDao gradeDao = new GradeImpl();
             grades = gradeDao.queryAll();
+            request.getSession().setAttribute("grades", grades);
         }
         PageModel pm = new PageModel(pageSize, pageNo, null, null, grades);
         pm.setPageNav(request.getRequestURI());
@@ -92,7 +93,8 @@ public class JAdminGrade extends HttpServlet {
                 gradeDao.add(grade);
             }
         }
-        grades = gradeDao.queryAll();
+        ArrayList<Grade> grades = gradeDao.queryAll();
+        request.getSession().setAttribute("grades", grades);
         PageModel pm = createPageModel(request);
         request.setAttribute("pm", pm);
         request.getSession().setAttribute("mess", new Message("gradeMess", "成绩录入成功"));

@@ -1,6 +1,8 @@
 package com.entity;
 
 
+import com.mybatisflex.annotation.Id;
+import com.mybatisflex.annotation.KeyType;
 import com.mybatisflex.annotation.Table;
 
 import java.sql.Timestamp;
@@ -10,6 +12,7 @@ import java.sql.Timestamp;
  */
 @Table(value = "course", dataSource = "eers")
 public class Course {
+    @Id(keyType = KeyType.None)
     private int ccode;
     private String cname;
     private String cmname;

@@ -152,6 +152,11 @@ public class Reginfo {
      */
     private String photo;
 
+    /**
+     * 是否录取
+     */
+    private Boolean isadmit;
+
     public Integer getId() {
         return id;
     }
@@ -374,5 +379,13 @@ public class Reginfo {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    public Boolean getIsadmit() {
+        return isadmit;
+    }
+
+    public void setIsadmit(Boolean isadmit) {
+        this.isadmit = isadmit;
     }
 }

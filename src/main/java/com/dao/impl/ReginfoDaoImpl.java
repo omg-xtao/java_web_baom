@@ -75,4 +75,11 @@ public class ReginfoDaoImpl implements ReginfoDao {
         }
         return (ArrayList<Reginfo>) MAPPER.selectListByQuery(qw);
     }
+
+    @Override
+    public ArrayList<Reginfo> findByMName(String mName) {
+        QueryWrapper qw = new QueryWrapper();
+        qw.select(REGINFO.ALL_COLUMNS).where(REGINFO.MNAME.eq(mName));
+        return (ArrayList<Reginfo>) MAPPER.selectListByQuery(qw);
+    }
 }

@@ -1,5 +1,7 @@
 package com.entity;
 
+import com.mybatisflex.annotation.Id;
+import com.mybatisflex.annotation.KeyType;
 import com.mybatisflex.annotation.Table;
 
 import java.sql.Timestamp;
@@ -9,6 +11,7 @@ import java.sql.Timestamp;
  */
 @Table(value = "stage", dataSource = "eers")
 public class Stage {
+    @Id(keyType = KeyType.None)
     private int stagenum;
     private String stagename;
     private Timestamp starttime;

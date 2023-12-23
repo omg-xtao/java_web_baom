@@ -43,7 +43,7 @@
             <a href="${webroot}/admin/reginfomanage.do">查看报名信息</a>
             <a href="${webroot}/zadmin/confirm.jsp">现场确认</a>
             <a href="${webroot}/admin/grade.do">查看成绩信息</a>
-            <a href="${webroot}/zadmin/line.do">设置录取分数线</a>
+            <a href="${webroot}/zadmin/line.jsp">设置录取分数线</a>
             <a href="${webroot}/zadmin/stumanage.jsp">学生密码清零</a>
             <a href="${webroot}/admin/record.do">我的登录历史</a>
             <a href="${webroot}/admin/pass.jsp">修改密码</a>

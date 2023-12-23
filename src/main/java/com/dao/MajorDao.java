@@ -10,6 +10,8 @@ import java.util.ArrayList;
 public interface MajorDao {
     int add(Major major);
 
+    int update(Major major);
+
     int deleteByMcode(String mcode);
 
     ArrayList<Major> findAll();

@@ -1,5 +1,7 @@
 package com.entity;
 
+import com.mybatisflex.annotation.Id;
+import com.mybatisflex.annotation.KeyType;
 import com.mybatisflex.annotation.Table;
 
 /**
@@ -7,6 +9,7 @@ import com.mybatisflex.annotation.Table;
  */
 @Table(value = "major", dataSource = "eers")
 public class Major {
+    @Id(keyType = KeyType.None)
     private String mcode;     //专业代码
     private String mname;     //专业名称
     private int plannum;      //计划录取人数
