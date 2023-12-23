@@ -37,4 +37,18 @@ public class GradeImpl implements GradeDao {
         qw.select(GRADE.ALL_COLUMNS).where(GRADE.TESTCARDNUM.eq(testCardNum).and(GRADE.CNAME.eq(cName)));
         return mapper.selectOneByQuery(qw);
     }
+
+    @Override
+    public ArrayList<Grade> findByTestcardnum(String testCardNum) {
+        QueryWrapper qw = new QueryWrapper();
+        qw.select(GRADE.ALL_COLUMNS).where(GRADE.TESTCARDNUM.like(testCardNum));
+        return (ArrayList<Grade>) mapper.selectListByQuery(qw);
+    }
+
+    @Override
+    public ArrayList<Grade> findBySname(String sname) {
+        QueryWrapper qw = new QueryWrapper();
+        qw.select(GRADE.ALL_COLUMNS).where(GRADE.SNAME.like(sname));
+        return (ArrayList<Grade>) mapper.selectListByQuery(qw);
+    }
 }

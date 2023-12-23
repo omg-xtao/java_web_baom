@@ -15,4 +15,8 @@ public interface GradeDao {
     ArrayList<Grade> queryAll();
 
     Grade findByTestcardnumAndCname(String testCardNum, String cName);
+
+    ArrayList<Grade> findByTestcardnum(String testCardNum);
+
+    ArrayList<Grade> findBySname(String sname);
 }
