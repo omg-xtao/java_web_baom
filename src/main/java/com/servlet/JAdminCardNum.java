@@ -5,6 +5,7 @@ import com.dao.impl.ReginfoDaoImpl;
 import com.entity.Major;
 import com.entity.Reginfo;
 import com.entity.School;
+import com.util.CardGenXlsx;
 import com.util.Message;
 import com.util.PageModel;
 
@@ -74,6 +75,7 @@ public class JAdminCardNum extends HttpServlet {
         for (Reginfo reginfo : reginfos) {
             reginfoDao.update(reginfo);
         }
+        (new CardGenXlsx(request.getServletContext().getRealPath("/"), null, null)).deleteAll();
         request.getSession().setAttribute("mess", new Message("assignMess", "分配成功"));
         request.getRequestDispatcher("/jadmin/assignnum.jsp").forward(request, response);
     }

@@ -3,6 +3,7 @@ package com.servlet;
 import com.dao.ReginfoDao;
 import com.dao.impl.ReginfoDaoImpl;
 import com.entity.Reginfo;
+import com.util.CardGenXlsx;
 import com.util.Message;
 
 import javax.servlet.ServletException;
@@ -53,6 +54,7 @@ public class JAdminRoomNum extends HttpServlet {
             }
             exameNum++;
         }
+        (new CardGenXlsx(request.getServletContext().getRealPath("/"), null, null)).deleteAll();
         request.getSession().setAttribute("mess", new Message("assignRoomMess", "分配成功"));
         request.getRequestDispatcher("/jadmin/assignroom.jsp").forward(request, response);
     }
