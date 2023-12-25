@@ -38,7 +38,7 @@ public class AdminReginfoManage extends HttpServlet {
             pm.setPageNav(request.getRequestURI());
             request.setAttribute("pm", pm);
         }
-        request.getRequestDispatcher("/jadmin/infomanage.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/infomanage.jsp").forward(request, response);
     }
 
     @Override

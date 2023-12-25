@@ -134,13 +134,18 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="${webroot}/jadmin/room.do" class="nav-link link-body-emphasis" aria-current="page">
+                <a href="${webroot}/jadmin/assignroom.jsp" class="nav-link link-body-emphasis" aria-current="page">
                     >> 考场分配
                 </a>
             </li>
             <li class="nav-item">
                 <a href="${webroot}/jadmin/gradeinput.do" class="nav-link link-body-emphasis" aria-current="page">
                     >> 录入成绩
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="${webroot}/admin/reginfomanage.do" class="nav-link link-body-emphasis" aria-current="page">
+                    >> 查看报名信息
                 </a>
             </li>
             <li class="nav-item">

@@ -10,47 +10,68 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
+<c:set var="webroot" value="${pageContext.request.contextPath}"/>
 <c:set var="title" value="录入成绩"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>${title}</title>
-    <link rel="stylesheet" type="text/css" href="../styles/basic.css"/>
+    <link rel="stylesheet" href="${webroot}/styles/bootstrap.min.css" crossorigin="anonymous">
+    <script src="${webroot}/js/bootstrap.bundle.min.js"></script>
+    <script src="${webroot}/js/record.js"></script>
+    <link rel="stylesheet" href="${webroot}/styles/sidebar.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="${webroot}/styles/index.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="${webroot}/styles/entry.css" crossorigin="anonymous">
 </head>
 <body>
-<%@ include file="../includes/header.jsp" %>
-<div id="content">
-    <div id="right">
-        <h1>${title}</h1>
-        <form action="${pageContext.request.contextPath}/jadmin/gradeinput.do" method="post" name="upload"
-              ENCTYPE="multipart/form-data">
-            <table style="margin:0 auto;">
-                <tr>
-                    <td style="text-align:center;"><input type="file" name="file1" id="file1" size="20"
-                                                          style="border:1px solid #999;"/></td>
-                    <td><input class="button" type="submit" name="submit" value="点击上传" id="submit"/>
-                <tr/>
-            </table>
+<main class="d-flex flex-nowrap">
+    <%@ include file="../includes/header.jsp" %>
+
+    <main class="form-signin w-100 m-auto scrollspy" style="min-width: 800px">
+        <img class="mb-4" src="${webroot}/images/logo.jpg" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 fw-normal">${title}</h1>
+        <c:if test="${'gradeMess' eq sessionScope.mess.name}">
+            <div class="alert alert-warning" role="alert">
+                    ${sessionScope.mess.content}
+            </div>
+        </c:if>
+
+        <form action="${webroot}/jadmin/gradeinput.do" method="post" enctype="multipart/form-data">
+            <div>
+                <label for="formFileLg" class="form-label">请您上传成绩表格</label>
+                <input class="form-control form-control-lg" id="formFileLg" type="file" name="myfile">
+            </div>
+            <br/><br/>
+            <input class="btn btn-primary w-100 py-2" type="submit" id="submit">
+            <br/><br/>
         </form>
-        <div class="operation">学生成绩列表↓：
-            <span class="mess">
-                <c:if test="${'gradeMess' eq sessionScope.mess.name}">${sessionScope.mess.content}</c:if>
-            </span>
-        </div>
-        <table class="dt" border="0" cellspacing="1">
-            <c:forEach items="${pm.data3}" var="supgrade" varStatus="rows">
+
+        <h1 class="h3 mb-3 fw-normal">学生成绩列表</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">序号</th>
+                <th scope="col">准考证号</th>
+                <th scope="col">姓名</th>
+                <th scope="col">课程名称</th>
+                <th scope="col">成绩</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${pm.data3}" var="supgrade" varStatus="row">
                 <tr>
+                    <td>${pm.fromIndex + row.index + 1}</td>
                     <td>${supgrade.testcardnum}</td>
                     <td>${supgrade.sname}</td>
                     <td>${supgrade.cname}</td>
                     <td>${supgrade.score}</td>
                 </tr>
             </c:forEach>
+            </tbody>
         </table>
-        <div class="pagenav">${pm.pageNav}</div>
-    </div>
-</div>
-<%@ include file="../includes/footer.jsp" %>
+        ${pm.pageNav}
+    </main>
+</main>
 </body>
 </html>
