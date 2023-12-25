@@ -48,15 +48,14 @@
                 <input type="password" class="form-control" name="confirmpass" id="confirmpass" value="${confirmpass}">
                 <label for="confirmpass">确认密码</label>
             </div>
-            <div class="form-floating">
-                <input type="text" class="form-control" name="code" id="code">
-                <label for="code">验证码</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="验证码" name="code" id="code">
+                <span class="input-group-text">
+                                <img src="${pageContext.request.contextPath}/includes/code.jsp" id="imagecode"
+                                     title="点击图片可刷新验证码"
+                                     onclick="this.src='${pageContext.request.contextPath}/includes/code.jsp?'+Math.random()">
+                </span>
             </div>
-            <br/>
-            <img src="${pageContext.request.contextPath}/includes/code.jsp" id="imagecode"
-                 title="点击图片可刷新验证码"
-                 onclick="this.src='${pageContext.request.contextPath}/includes/code.jsp?'+Math.random()">
-            <br/><br/>
 
             <input class="btn btn-primary w-100 py-2" type="submit" id="submit">
             <br/><br/>

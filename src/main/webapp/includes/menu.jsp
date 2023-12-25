@@ -45,5 +45,109 @@
                 </a>
             </li>
         </c:when>
+        <%-- 系统管理员菜单 --%>
+        <c:when test="${ '系统管理员' eq sessionScope.adminuser.admingroup }">
+            <li class="nav-item">
+                <a href="${webroot}/admin/state.jsp" class="nav-link link-body-emphasis" aria-current="page">
+                    >> 系统状态
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="${webroot}/sadmin/stageadd.do" class="nav-link link-body-emphasis" aria-current="page">
+                    >> 阶段定义
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="${webroot}/sadmin/manage.do" class="nav-link link-body-emphasis" aria-current="page">
+                    >> 管理员维护
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="${webroot}/sadmin/db.jsp" class="nav-link link-body-emphasis" aria-current="page">
+                    >> 数据库管理
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="${webroot}/admin/reginfomanage.do" class="nav-link link-body-emphasis" aria-current="page">
+                    >> 查看报名信息
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="${webroot}/admin/grade.jsp" class="nav-link link-body-emphasis" aria-current="page">
+                    >> 查看成绩信息
+                </a>
+            </li>
+        </c:when>
+        <%-- 招生管理员菜单 --%>
+        <c:when test="${ '招生管理员' eq sessionScope.adminuser.admingroup }">
+            <li class="nav-item">
+                <a href="${webroot}/admin/state.jsp" class="nav-link link-body-emphasis" aria-current="page">
+                    >> 系统状态
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="${webroot}/zadmin/stageset.jsp" class="nav-link link-body-emphasis" aria-current="page">
+                    >> 阶段设置
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="${webroot}/zadmin/release.jsp" class="nav-link link-body-emphasis" aria-current="page">
+                    >> 招考信息设置
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="${webroot}/admin/reginfomanage.do" class="nav-link link-body-emphasis" aria-current="page">
+                    >> 查看报名信息
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="${webroot}/zadmin/confirm.jsp" class="nav-link link-body-emphasis" aria-current="page">
+                    >> 现场确认
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="${webroot}/admin/grade.jsp" class="nav-link link-body-emphasis" aria-current="page">
+                    >> 查看成绩信息
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="${webroot}/zadmin/line.jsp" class="nav-link link-body-emphasis" aria-current="page">
+                    >> 设置录取分数线
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="${webroot}/zadmin/stumanage.jsp" class="nav-link link-body-emphasis" aria-current="page">
+                    >> 学生密码清零
+                </a>
+            </li>
+        </c:when>
+        <%-- 教务管理员菜单 --%>
+        <c:when test="${ '教务管理员' eq sessionScope.adminuser.admingroup }">
+            <li class="nav-item">
+                <a href="${webroot}/admin/state.jsp" class="nav-link link-body-emphasis" aria-current="page">
+                    >> 系统状态
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="${webroot}/jadmin/cardnum.do" class="nav-link link-body-emphasis" aria-current="page">
+                    >> 准考证号分配
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="${webroot}/jadmin/room.do" class="nav-link link-body-emphasis" aria-current="page">
+                    >> 考场分配
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="${webroot}/jadmin/gradeinput.do" class="nav-link link-body-emphasis" aria-current="page">
+                    >> 录入成绩
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="${webroot}/admin/grade.jsp" class="nav-link link-body-emphasis" aria-current="page">
+                    >> 查看成绩信息
+                </a>
+            </li>
+        </c:when>
     </c:choose>
 </ul>

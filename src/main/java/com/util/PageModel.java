@@ -95,45 +95,20 @@ public class PageModel implements Serializable {
             sb.append("下一页&nbsp;&nbsp;");
             sb.append("尾页&nbsp;&nbsp;");
         }
-        sb.append("跳转到第&nbsp;").append("<select>");
+        sb.append("跳转到第&nbsp;").append("<select onchange=\"record('");
+        sb.append(url).append("',").append("this.value,");
+        sb.append(pageSize).append(");\">");
         for (int i = 1; i <= pageCount; i++) {
             if (pageNo != i) {
-                sb.append("<option onclick=\"location.href='").append(url);
-                sb.append("pageNo=").append(i);
+                sb.append("<option>");
             } else {
-                sb.append("<option selected='selected' onclick=\"location.href='");
-                sb.append(url).append("pageNo=").append(i);
+                sb.append("<option selected='selected'>");
             }
-            sb.append("&pageSize=").append(pageSize).append("';\">");
             sb.append("&nbsp;").append(i).append("/").append(pageCount);
             sb.append("&nbsp;").append("</option>");
         }
         sb.append("</select>&nbsp;页");
         this.pageNav = sb.toString();
-    }
-
-    public String getContent() {
-        StringBuilder s = new StringBuilder();
-        s.append("<table>");
-        s.append("<tr>\n");
-        s.append("<th>序号</th>\n");
-        s.append("<th>登录名</th>\n");
-        s.append("<th>用户组</th>\n");
-        s.append("<th>登录时间</th>\n");
-        s.append("<th>登录IP</th>\n");
-        s.append("</tr>\n");
-        int fromIndex = (this.pageNo - 1) * this.pageSize;
-        for (int i = 0; i < data.size(); i++) {
-            s.append("<tr>\n");
-            s.append("<td>").append(fromIndex + i + 1).append("</td>\n");
-            s.append("<td>").append(data.get(i).getLogname()).append("</td>\n");
-            s.append("<td>").append(data.get(i).getUsergroup()).append("</td>\n");
-            s.append("<td>").append(data.get(i).getLogtime()).append("</td>\n");
-            s.append("<td>").append(data.get(i).getLogip()).append("</td>\n");
-            s.append("</tr>\n");
-        }
-        s.append("</table>");
-        return s.toString();
     }
 
     public List<Record> getData() {
@@ -150,5 +125,9 @@ public class PageModel implements Serializable {
 
     public String getPageNav() {
         return pageNav;
+    }
+
+    public int getFromIndex() {
+        return fromIndex;
     }
 }

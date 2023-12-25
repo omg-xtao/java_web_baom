@@ -24,9 +24,9 @@ public class AdminGrade extends HttpServlet {
         String sname = req.getParameter("sname");
         GradeDao gradeDao = new GradeDaoImpl();
         ArrayList<Grade> grades;
-        if (testCardNum != null) {
+        if (testCardNum != null && !testCardNum.isEmpty()) {
             grades = gradeDao.findByTestcardnum(testCardNum);
-        } else if (sname != null) {
+        } else if (sname != null && !sname.isEmpty()) {
             grades = gradeDao.findBySname(sname);
         } else {
             return;

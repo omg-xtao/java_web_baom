@@ -30,4 +30,22 @@
             </ul>
         </div>
     </c:when>
+    <c:when test="${not empty sessionScope.adminuser}">
+        <hr>
+        <div class="dropdown">
+            <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+               data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="${webroot}/images/logo.jpg" alt="" width="32" height="32" class="rounded-circle me-2">
+                <strong>${sessionScope.adminuser.adminname}</strong>
+            </a>
+            <ul class="dropdown-menu text-small shadow">
+                <li><a class="dropdown-item" href="${webroot}/admin/record.do">我的登录历史</a></li>
+                <li><a class="dropdown-item" href="${webroot}/admin/pass.jsp">修改密码</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="${webroot}/logout.jsp">退出登录</a></li>
+            </ul>
+        </div>
+    </c:when>
 </c:choose>
