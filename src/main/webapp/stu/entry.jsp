@@ -17,213 +17,199 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>${title}</title>
-    <link rel="stylesheet" type="text/css" href="../styles/basic.css"/>
+    <link rel="stylesheet" href="${webroot}/styles/bootstrap.min.css" crossorigin="anonymous">
+    <script src="${webroot}/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="${webroot}/styles/sidebar.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="${webroot}/styles/index.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="${webroot}/styles/entry.css" crossorigin="anonymous">
 </head>
 <body>
-<%@ include file="../includes/header.jsp" %>
-<div id="content">
-    <div id="left">
-    </div>
-    <div id="right">
-        <h1>${title}</h1>
-        <div class="operation">请您认真填写报考信息↓：
-            <span class="mess">
-                <c:if test="${'stuEntryMess' eq sessionScope.mess.name}">${sessionScope.mess.content}</c:if>
-            </span>
-        </div>
-        <div class="ft">
-            <form method="post" action="${pageContext.request.contextPath}/stu/entry.do?action=entry">
-                <fieldset>
-                    <legend> 报考信息</legend>
-                    <table>
-                        <tr>
-                            <td class="label">报考专业：</td>
-                            <td>
-                                <select name="mname" id="mname">
-                                    <c:forEach items="${applicationScope.majors}" var="major">
-                                        <c:choose>
-                                            <c:when test="${major.mname == requestScope.reginfo.mname}">
-                                                <option value="${major.mname}" selected='selected'> ${major.mname}
-                                                </option>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <option value="${major.mname}">${major.mname}</option>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </c:forEach>
-                                </select>
-                            </td>
-                        </tr>
-                    </table>
-                </fieldset>
-                <fieldset>
-                    <legend> 个人基本信息</legend>
-                    <table>
-                        <tr>
-                            <td class="label">姓名：</td>
-                            <td>
-                                <input type="text" name="sname" id="sname" value="${requestScope.reginfo.sname}"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="label">性别：</td>
-                            <td>
-                                <c:choose>
-                                    <c:when test="${requestScope.reginfo.ssex == '男'}">
-                                        <input type="radio" name="ssex" id="ssex" value="男" checked="checked"/>男
-                                        <input type="radio" name="ssex" id="ssex" value="女"/>女
-                                    </c:when>
-                                    <c:otherwise>
-                                        <input type="radio" name="ssex" id="ssex" value="男"/>男
-                                        <input type="radio" name="ssex" id="ssex" value="女" checked="checked"/>女
-                                    </c:otherwise>
-                                </c:choose>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="label">出生日期：</td>
-                            <td><input type="date" name="birthday" id="birthday"
-                                       value="${requestScope.reginfo.birthday}"></td>
-                        </tr>
-                        <tr>
-                            <td class="label">民族：</td>
-                            <td><input type="text" name="nation" id="nation" value="${requestScope.reginfo.nation}">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="label">身份证号：</td>
-                            <td><input type="text" name="idcode" id="idcode" value="${requestScope.reginfo.idcode}">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="label">政治面貌：</td>
-                            <td><input type="text" name="political" id="political"
-                                       value="${requestScope.reginfo.political}"></td>
-                        </tr>
-                        <tr>
-                            <td class="label">生源地：</td>
-                            <td><input type="text" name="source" id="source" value="${requestScope.reginfo.source}">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="label">家庭住址：</td>
-                            <td><input type="text" name="homeaddr" id="homeaddr"
-                                       value="${requestScope.reginfo.homeaddr}"></td>
-                        </tr>
-                    </table>
-                </fieldset>
-                <fieldset>
-                    <legend> 教育背景</legend>
-                    <table>
-                        <tr>
-                            <td class="label">毕业院校</td>
-                            <td><input type="text" name="school" id="school" value="${requestScope.reginfo.school}">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="label">毕业时间</td>
-                            <td><input type="date" name="gradutetime" id="gradutetime"
-                                       value="${requestScope.reginfo.gradutetime}"></td>
-                        </tr>
-                        <tr>
-                            <td class="label">是否应届</td>
-                            <td>
-                                <c:choose>
-                                    <c:when test="${requestScope.reginfo.isnew}">
-                                        <input type="radio" name="isnew" id="isnew" value="1" checked="checked"/>应届
-                                        <input type="radio" name="isnew" id="isnew" value="0"/>往届
-                                    </c:when>
-                                    <c:otherwise>
-                                        <input type="radio" name="isnew" id="isnew" value="1"/>应届
-                                        <input type="radio" name="isnew" id="isnew" value="0" checked="checked"/>往届
-                                    </c:otherwise>
-                                </c:choose>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="label">文理科</td>
-                            <td>
-                                <c:choose>
-                                    <c:when test="${requestScope.reginfo.aos == '理科'}">
-                                        <input type="radio" name="aos" id="aos" value="理科" checked="checked"/>理科
-                                        <input type="radio" name="aos" id="aos" value="文科"/>文科
-                                    </c:when>
-                                    <c:otherwise>
-                                        <input type="radio" name="aos" id="aos" value="理科"/>理科
-                                        <input type="radio" name="aos" id="aos" value="文科" checked="checked"/>文科
-                                    </c:otherwise>
-                                </c:choose>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="label">所学专业</td>
-                            <td><input type="text" name="major" id="major" value="${requestScope.reginfo.major}"></td>
-                        </tr>
-                        <tr>
-                            <td class="label">英语46级</td>
-                            <td>
-                                <c:choose>
-                                    <c:when test="${requestScope.reginfo.cet == '无'}">
-                                        <input type="radio" name="cet" id="cet" value="无" checked="checked"/>无
-                                        <input type="radio" name="cet" id="cet" value="四级"/>四级
-                                        <input type="radio" name="cet" id="cet" value="六级"/>六级
-                                    </c:when>
-                                    <c:when test="${requestScope.reginfo.cet == '四级'}">
-                                        <input type="radio" name="cet" id="cet" value="无"/>无
-                                        <input type="radio" name="cet" id="cet" value="四级" checked="checked"/>四级
-                                        <input type="radio" name="cet" id="cet" value="六级"/>六级
-                                    </c:when>
-                                    <c:otherwise>
-                                        <input type="radio" name="cet" id="cet" value="无"/>无
-                                        <input type="radio" name="cet" id="cet" value="四级"/>四级
-                                        <input type="radio" name="cet" id="cet" value="六级" checked="checked"/>六级
-                                    </c:otherwise>
-                                </c:choose>
-                            </td>
-                        </tr>
-                    </table>
-                </fieldset>
-                <fieldset>
-                    <legend> 联系人信息</legend>
-                    <table>
-                        <tr>
-                            <td class="label">收件人姓名</td>
-                            <td><input type="text" name="receiver" id="receiver"
-                                       value="${requestScope.reginfo.receiver}"></td>
-                        </tr>
-                        <tr>
-                            <td class="label">收信地址</td>
-                            <td><input type="text" name="conaddr" id="conaddr" value="${requestScope.reginfo.conaddr}">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="label">邮编</td>
-                            <td><input type="text" name="zipcode" id="zipcode" value="${requestScope.reginfo.zipcode}">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="label">手机号</td>
-                            <td><input type="text" name="mobile" id="mobile" value="${requestScope.reginfo.mobile}">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="label">备用电话</td>
-                            <td><input type="text" name="telphone" id="telphone"
-                                       value="${requestScope.reginfo.telphone}"></td>
-                        </tr>
-                    </table>
-                </fieldset>
-                <table>
-                    <tr>
-                        <td colspan="2">
-                            <input type="submit" value="保存并下一步" class="button"/>
-                            <input type="reset" value="重置" class="button"/>
-                        </td>
-                    </tr>
-                </table>
-            </form>
-        </div>
-    </div>
-    <%@ include file="../includes/footer.jsp" %>
+<main class="d-flex flex-nowrap">
+    <%@ include file="../includes/header.jsp" %>
+
+    <main class="form-signin w-100 m-auto scrollspy" style="min-width: 600px">
+        <form action="${webroot}/stu/entry.do?action=entry" method="post">
+            <img class="mb-4" src="${webroot}/images/logo.jpg" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 fw-normal">请填写报考信息</h1>
+
+            <c:if test="${not empty requestScope.stuEntryMess}">
+                <div class="alert alert-warning" role="alert">
+                        ${requestScope.stuEntryMess}
+                </div>
+            </c:if>
+
+            <h5>报考信息</h5>
+            <div class="input-group mb-3">
+                <span class="input-group-text">报考专业</span>
+                <select class="form-select" name="mname" id="mname">
+                    <c:forEach items="${applicationScope.majors}" var="major">
+                        <c:choose>
+                            <c:when test="${major.mname == requestScope.reginfo.mname}">
+                                <option value="${major.mname}" selected='selected'> ${major.mname}
+                                </option>
+                            </c:when>
+                            <c:otherwise>
+                                <option value="${major.mname}">${major.mname}</option>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                </select>
+            </div>
+            <h5>个人基本信息</h5>
+            <div class="input-group mb-3">
+                <span class="input-group-text">姓名</span>
+                <input type="text" class="form-control" name="sname" id="sname" value="${requestScope.reginfo.sname}">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">性别</span>
+                <select class="form-select" name="ssex" id="ssex">
+                    <c:choose>
+                        <c:when test="${requestScope.reginfo.ssex == '男'}">
+                            <option value="男" selected='selected'>男</option>
+                            <option value="女">女</option>
+                        </c:when>
+                        <c:otherwise>
+                            <option value="男">男</option>
+                            <option value="女" selected='selected'>女</option>
+                        </c:otherwise>
+                    </c:choose>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">出生日期</span>
+                <input type="date" class="form-control" name="birthday" id="birthday"
+                       value="${requestScope.reginfo.birthday}">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">民族</span>
+                <input type="text" class="form-control" name="nation" id="nation"
+                       value="${requestScope.reginfo.nation}">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">身份证号</span>
+                <input type="text" class="form-control" name="idcode" id="idcode"
+                       value="${requestScope.reginfo.idcode}">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">政治面貌</span>
+                <select class="form-select" name="political" id="political">
+                    <c:set var="politicals" value="${{'群众', '共青团员', '共产党员'}}"/>
+                    <c:forEach items="${politicals}" var="pol">
+                        <c:choose>
+                            <c:when test="${pol == requestScope.reginfo.political}">
+                                <option value="${pol}" selected='selected'>${pol}</option>
+                            </c:when>
+                            <c:otherwise>
+                                <option value="${pol}">${pol}</option>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">生源地</span>
+                <input type="text" class="form-control" name="source" id="source"
+                       value="${requestScope.reginfo.source}">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">家庭住址</span>
+                <input type="text" class="form-control" name="homeaddr" id="homeaddr"
+                       value="${requestScope.reginfo.homeaddr}">
+            </div>
+            <h5>教育背景</h5>
+            <div class="input-group mb-3">
+                <span class="input-group-text">毕业院校</span>
+                <input type="text" class="form-control" name="school" id="school"
+                       value="${requestScope.reginfo.school}">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">毕业时间</span>
+                <input type="date" class="form-control" name="gradutetime" id="gradutetime"
+                       value="${requestScope.reginfo.gradutetime}">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">是否应届</span>
+                <select class="form-select" ame="isnew" id="isnew">
+                    <c:choose>
+                        <c:when test="${requestScope.reginfo.isnew}">
+                            <option value="1" selected='selected'>应届</option>
+                            <option value="0">往届</option>
+                        </c:when>
+                        <c:otherwise>
+                            <option value="1">应届</option>
+                            <option value="0" selected='selected'>往届</option>
+                        </c:otherwise>
+                    </c:choose>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">文理科</span>
+                <select class="form-select" name="aos" id="aos">
+                    <c:choose>
+                        <c:when test="${requestScope.reginfo.aos == '理科'}">
+                            <option value="理科" selected='selected'>理科</option>
+                            <option value="文科">文科</option>
+                        </c:when>
+                        <c:otherwise>
+                            <option value="理科">理科</option>
+                            <option value="文科" selected='selected'>文科</option>
+                        </c:otherwise>
+                    </c:choose>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">所学专业</span>
+                <input type="text" class="form-control" name="major" id="major" value="${requestScope.reginfo.major}">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">英语等级</span>
+                <select class="form-select" name="cet" id="cet">
+                    <c:set var="cets" value="${{'无', '四级', '六级'}}"/>
+                    <c:forEach items="${cets}" var="cet">
+                        <c:choose>
+                            <c:when test="${cet == requestScope.reginfo.cet}">
+                                <option value="${cet}" selected='selected'>${cet}</option>
+                            </c:when>
+                            <c:otherwise>
+                                <option value="${cet}">${cet}</option>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                </select>
+            </div>
+            <h5>联系人信息</h5>
+            <div class="input-group mb-3">
+                <span class="input-group-text">收件人姓名</span>
+                <input type="text" class="form-control" name="receiver" id="receiver"
+                       value="${requestScope.reginfo.receiver}">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">收件人地址</span>
+                <input type="text" class="form-control" name="conaddr" id="conaddr"
+                       value="${requestScope.reginfo.conaddr}">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">邮编</span>
+                <input type="text" class="form-control" name="zipcode" id="zipcode"
+                       value="${requestScope.reginfo.zipcode}">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">手机号</span>
+                <input type="text" class="form-control" name="mobile" id="mobile"
+                       value="${requestScope.reginfo.mobile}">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">备用电话</span>
+                <input type="text" class="form-control" name="telphone" id="telphone"
+                       value="${requestScope.reginfo.telphone}">
+            </div>
+
+            <input class="btn btn-primary w-100 py-2" type="submit" id="submit" value="保存并下一步">
+            <br/><br/>
+            <input class="btn btn-primary w-100 py-2" type="reset" id="reset">
+            <br/><br/>
+        </form>
+    </main>
+</main>
 </body>
 </html>
