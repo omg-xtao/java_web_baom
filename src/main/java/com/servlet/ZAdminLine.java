@@ -73,6 +73,8 @@ public class ZAdminLine extends HttpServletInit {
         AtomicInteger passNum = new AtomicInteger(major.getPlannum());
         if (major.getAdmitnum() <= 0) {
             passScore = getPassScore(map, passNum);
+        } else {
+            passNum.set(major.getAdmitnum());
         }
         request.getSession().setAttribute("scoremap", map);
         request.setAttribute("passcode", passScore);

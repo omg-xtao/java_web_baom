@@ -10,59 +10,70 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
-<c:set var="title" value="阶段设置"/>
 <c:set var="webroot" value="${pageContext.request.contextPath}"/>
+<c:set var="title" value="阶段设置"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>${title}</title>
-    <link rel="stylesheet" type="text/css" href="../styles/basic.css"/>
+    <link rel="stylesheet" href="${webroot}/styles/bootstrap.min.css" crossorigin="anonymous">
+    <script src="${webroot}/js/bootstrap.bundle.min.js"></script>
+    <script src="${webroot}/js/record.js"></script>
+    <link rel="stylesheet" href="${webroot}/styles/sidebar.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="${webroot}/styles/index.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="${webroot}/styles/entry.css" crossorigin="anonymous">
 </head>
 <body>
-<%@ include file="../includes/header.jsp" %>
-<div id="content">
-    <div id="left">
-    </div>
-    <div id="right">
-        <h1>${title}</h1>
-        <div class="operation">设置当前阶段↓：
-            <span class="mess">
-                <c:if test="${'stageSetMess' eq sessionScope.mess.name}">${sessionScope.mess.content}</c:if>
-            </span>
-        </div>
+<main class="d-flex flex-nowrap">
+    <%@ include file="../includes/header.jsp" %>
+
+    <main class="form-signin w-100 m-auto scrollspy" style="min-width: 800px">
+        <img class="mb-4" src="${webroot}/images/logo.jpg" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 fw-normal">${title}</h1>
+        <c:if test="${'stageSetMess' eq sessionScope.mess.name}">
+            <div class="alert alert-warning" role="alert">
+                    ${sessionScope.mess.content}
+            </div>
+        </c:if>
+
         <form action="${webroot}/zadmin/stageset.do?action=stageSet" method="post">
-            <table>
-                <tr>
-                    <td class="label">选择阶段：
-                        <select name="currstage" id="currstage">
-                            <c:forEach items="${applicationScope.stages}" var="stage">
-                                <c:choose>
-                                    <c:when test="${ stage.stagename eq applicationScope.currstage.stagename }">
-                                        <option value="${stage.stagename}" selected="selected"> ${stage.stagenum}
-                                            : ${stage.stagename} </option>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <option value="${stage.stagename}"> ${stage.stagenum}
-                                            : ${stage.stagename} </option>
-                                    </c:otherwise>
-                                </c:choose>
-                            </c:forEach>
-                        </select>
-                    </td>
-                    <td><input class="button" type="submit" value="确认设置"/></td>
-                </tr>
-            </table>
+            <div class="input-group mb-3">
+                <span class="input-group-text">选择阶段</span>
+                <select class="form-select" name="currstage" id="currstage">
+                    <c:forEach items="${applicationScope.stages}" var="stage">
+                        <c:choose>
+                            <c:when test="${ stage.stagename eq applicationScope.currstage.stagename }">
+                                <option value="${stage.stagename}" selected="selected"> ${stage.stagenum}
+                                    : ${stage.stagename} </option>
+                            </c:when>
+                            <c:otherwise>
+                                <option value="${stage.stagename}"> ${stage.stagenum}
+                                    : ${stage.stagename} </option>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                </select>
+            </div>
+            <input class="btn btn-primary w-100 py-2" type="submit" id="submit" value="设置">
+            <br/><br/>
         </form>
-        <div class="operation">已定义阶段列表（当前处于《 ${applicationScope.currstage.stagename} 》阶段）↓：</div>
-        <table class="dt" border="0" cellspacing="1">
+
+
+        <h5>已定义阶段列表</h5>
+        <span>（当前处于《 ${applicationScope.currstage.stagename} 》阶段）</span>
+
+        <table class="table">
+            <thead>
             <tr>
-                <th>编号</th>
-                <th>阶段名称</th>
-                <th>开始时间</th>
-                <th>结束时间</th>
-                <th>阶段说明</th>
+                <th scope="col">编号</th>
+                <th scope="col">阶段名称</th>
+                <th scope="col">开始时间</th>
+                <th scope="col">结束时间</th>
+                <th scope="col">阶段说明</th>
             </tr>
+            </thead>
+            <tbody>
             <c:forEach items="${applicationScope.stages}" var="stage" varStatus="rows">
                 <tr>
                     <td style="width:40px;">${stage.stagenum}</td>
@@ -72,8 +83,9 @@
                     <td>${stage.note}</td>
                 </tr>
             </c:forEach>
+            </tbody>
         </table>
-    </div>
-    <%@ include file="../includes/footer.jsp" %>
+    </main>
+</main>
 </body>
 </html>

@@ -54,7 +54,7 @@
         </table>
 
         <h1 class="h3 mb-3 fw-normal">查看报名信息</h1>
-        <form action="${pageContext.request.contextPath}/admin/reginfomanage.do" method="post">
+        <form action="${webroot}/admin/reginfomanage.do" method="post">
             <div class="input-group mb-3">
                 <span class="input-group-text">报考专业</span>
                 <select class="form-select" name="mname" id="mname">

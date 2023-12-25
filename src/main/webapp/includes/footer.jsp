@@ -12,8 +12,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
 <c:set var="webroot" value="${pageContext.request.contextPath}"/>
-<footer class="justify-content-between align-items-center py-1 my-4 border-top">
+<footer class="justify-content-between align-items-center py-1 my-1 border-top">
     <p class="text-body-secondary">&copy; ${applicationScope.school.shyear} ${applicationScope.school.shname}</p>
     <p class="text-body-secondary">邮编：${applicationScope.school.shzip}</p>
-    <p class="text-body-secondary">地址：${applicationScope.school.shaddr}</p>
+    <p class="text-body-secondary">${applicationScope.school.shaddr}</p>
 </footer>

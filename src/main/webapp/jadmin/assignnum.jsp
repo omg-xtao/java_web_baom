@@ -60,7 +60,7 @@
         </table>
         ${pm.pageNav}
 
-        <form action="${pageContext.request.contextPath}/jadmin/cardnum.do?action=assign" method="post">
+        <form action="${webroot}/jadmin/cardnum.do?action=assign" method="post">
             <input class="btn btn-primary w-100 py-2" type="submit" id="submit" value="确认分配">
             <br/><br/>
         </form>

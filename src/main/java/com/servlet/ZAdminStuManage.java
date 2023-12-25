@@ -60,10 +60,18 @@ public class ZAdminStuManage extends HttpServlet {
         ServletContext servletContext = request.getServletContext();
         StuDao stuDao = new StuDaoImpl();
         String action = request.getParameter("action");
-        if ("findStusLikeUsername".equals(action)) {
-            findStusLikeUsername(stuDao, request, response);
-        } else if ("findStusLikeIdcode".equals(action)) {
-            findStusLikeIdcode(stuDao, request, response);
+        if ("find".equals(action)) {
+            String username = request.getParameter("username");
+            String idcode = request.getParameter("idcode");
+            request.setAttribute("username", username);
+            request.setAttribute("idcode", idcode);
+            if (username != null && !username.isEmpty()) {
+                findStusLikeUsername(stuDao, request, response);
+            } else if (idcode != null && !idcode.isEmpty()) {
+                findStusLikeIdcode(stuDao, request, response);
+            } else {
+                response.sendRedirect(servletContext.getContextPath() + "/zadmin/stumanage.jsp");
+            }
         } else {
             response.sendRedirect(servletContext.getContextPath() + "/zadmin/stumanage.jsp");
         }

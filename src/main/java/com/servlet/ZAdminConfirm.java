@@ -19,6 +19,7 @@ public class ZAdminConfirm extends HttpServletInit {
     private void getReginfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String idCode = request.getParameter("idCode");
         ReginfoDao reginfoDao = new ReginfoDaoImpl();
+        request.setAttribute("idCode", idCode);
         request.setAttribute("reginfos", reginfoDao.findByIdCode(idCode));
         request.getRequestDispatcher("/zadmin/confirm.jsp").forward(request, response);
     }
