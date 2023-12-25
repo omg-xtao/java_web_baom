@@ -39,6 +39,11 @@ public class StuPass extends HttpServlet {
             forward(request, response, mess);
             return;
         }
+        String sessioncode = session.getAttribute("sessioncode").toString();
+        if (!code.equals(sessioncode)) {
+            forward(request, response, "* 验证码错误！");
+            return;
+        }
         Stu s = stuDao.validateLogin(username, Encrypt.SHA(oldPassword));
         if (s == null) {
             forward(request, response, "* 旧密码错误！");

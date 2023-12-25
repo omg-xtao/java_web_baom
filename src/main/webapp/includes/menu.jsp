@@ -13,7 +13,7 @@
 <c:set var="webroot" value="${pageContext.request.contextPath}"/>
 <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
-        <a href="${webroot}" class="nav-link link-body-emphasis" aria-current="page">
+        <a href="${webroot}/" class="nav-link link-body-emphasis" aria-current="page">
             >> 主页
         </a>
     </li>

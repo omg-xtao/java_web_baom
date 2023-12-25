@@ -12,22 +12,28 @@
 <%@ page isELIgnored="false" %>
 <c:set var="title" value="准考证打印"/>
 <c:set var="webroot" value="${pageContext.request.contextPath}"/>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>${title}</title>
-    <link rel="stylesheet" type="text/css" href="../styles/basic.css"/>
+    <link rel="stylesheet" href="${webroot}/styles/bootstrap.min.css" crossorigin="anonymous">
+    <script src="${webroot}/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="${webroot}/styles/sidebar.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="${webroot}/styles/index.css" crossorigin="anonymous">
 </head>
 <body>
-<%@ include file="../includes/header.jsp" %>
-<div id="content">
-    <div id="left">
-    </div>
-    <div id="right">
-        <h1>${title}</h1>
-    </div>
-    <a href="${webroot}/stu/cardPrint.do">下载准考证</a>
-</div>
+<main class="d-flex flex-nowrap">
+    <%@ include file="../includes/header.jsp" %>
+
+    <main class="form-signin w-100 m-auto">
+        <img class="mb-4" src="${webroot}/images/logo.jpg" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 fw-normal">${title}</h1>
+
+        <br/>
+        <a href="${webroot}/stu/cardPrint.do">
+            <button type="button" class="btn btn-primary btn-lg">下载准考证</button>
+        </a>
+    </main>
+</main>
 </body>
 </html>

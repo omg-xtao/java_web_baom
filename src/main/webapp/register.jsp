@@ -10,77 +10,81 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
+<c:set var="webroot" value="${pageContext.request.contextPath}"/>
 <c:set var="title" value="新用户注册"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>${title}</title>
-    <link rel="stylesheet" type="text/css" href="styles/basic.css"/>
-    <script type="text/javascript" src="js/register.js"></script>
+    <link rel="stylesheet" href="${webroot}/styles/bootstrap.min.css" crossorigin="anonymous">
+    <script src="${webroot}/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="${webroot}/styles/sidebar.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="${webroot}/styles/index.css" crossorigin="anonymous">
 </head>
 <body>
-<%@ include file="./includes/header.jsp" %>
-<div id="content">
-    <div id="left">
-        <h1>提示</h1>
-        <div class="ft" style="border: none;">
-            <table>
-                <tr>
-                    <td>1、请牢记您注册时填写的用户名和密码，登录本系统时您需要提供正确的用户名和密码！</td>
-                </tr>
-                <tr>
-                    <td>2、忘记用户名或者密码请联系招生单位！</td>
-                </tr>
-            </table>
+<main class="d-flex flex-nowrap">
+    <%@ include file="./includes/header.jsp" %>
+
+    <main class="form-signin w-100 m-auto">
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <img src="${webroot}/images/logo.jpg" class="rounded me-2" width="32" height="32">
+                    <strong class="me-auto">提示</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    1、请牢记您注册时填写的用户名和密码，登录本系统时您需要提供正确的用户名和密码！</br>
+                    2、忘记用户名或者密码请联系招生单位！
+                </div>
+            </div>
         </div>
-    </div>
-    <div id="right">
-        <h1>${title}</h1>
-        <div class="operation">填写注册信息↓：
-            <span class="mess" id="stuAddMess">${requestScope.stuAddMess}</span>
-        </div>
-        <div class="ft">
-            <form method="post" action="register.do">
-                <table>
-                    <tr>
-                        <td class="label">用户名：</td>
-                        <td colspan="2"><input type="text" name="username" id="username"
-                                               value="${ requestScope.username }"/></td>
-                        <td class="hint"> *用户名为英文字母、下划线或数字组合，长度为6-20位</td>
-                    </tr>
-                    <tr>
-                        <td class="label">密码：</td>
-                        <td colspan="2"><input type="password" name="password" id="password"
-                                               value="${ requestScope.password }"/></td>
-                        <td class="hint"> *密码为英文字母、下划线或数字组合，长度为6-20位</td>
-                    </tr>
-                    <tr>
-                        <td class="label">确认密码：</td>
-                        <td colspan="2"><input type="password" name="confirmpass" id="confirmpass"
-                                               value="${ requestScope.confirmpass }"/></td>
-                        <td class="hint"> * 两次输入的密码要一致</td>
-                    </tr>
-                    <tr>
-                        <td class="label">验证码：</td>
-                        <td><input style="width: 65px;" type="text" name="code" id="code"
-                                   value="${ requestScope.code }"/></td>
-                        <td><img src="includes/code.jsp" id="imagecode" title="点击图片可更换"
-                                 onclick="this.src+='?tm='+ Math.random();"/></td>
-                        <td class="hint"> * 看不清？点击验证码图片可更换</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3">
-                            <input type="submit" value="注 册" class="button" id="submit"/>
-                            <input type="reset" value="重 置" class="button" id="reset"/>
-                        </td>
-                        <td>* 已有账号，<a href="/index.jsp">点此登录</a></td>
-                    </tr>
-                </table>
-            </form>
-        </div>
-        <div class="clearf"></div>
-    </div>
-    <%@ include file="./includes/footer.jsp" %>
+        <form action="${webroot}/register.do" method="post">
+            <img class="mb-4" src="${webroot}/images/logo.jpg" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 fw-normal">注册账号</h1>
+
+            <c:if test="${not empty requestScope.stuAddMess}">
+                <div class="alert alert-warning" role="alert">
+                        ${requestScope.stuAddMess}
+                </div>
+            </c:if>
+
+            <div class="form-floating">
+                <input type="text" class="form-control" name="username" id="username" value="${username}">
+                <label for="username">用户名</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" name="password" id="password" value="${password}">
+                <label for="password">密码</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" name="confirmpass" id="confirmpass" value="${confirmpass}">
+                <label for="confirmpass">确认密码</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" name="code" id="code">
+                <label for="code">验证码</label>
+            </div>
+            <br/>
+            <img src="${pageContext.request.contextPath}/includes/code.jsp" id="imagecode"
+                 title="点击图片可刷新验证码"
+                 onclick="this.src='${pageContext.request.contextPath}/includes/code.jsp?'+Math.random()">
+            <br/><br/>
+
+            <input class="btn btn-primary w-100 py-2" type="submit" id="submit">
+            <br/><br/>
+        </form>
+        <a href="${webroot}/index.jsp">
+            <button class="btn btn-primary w-100 py-2">去登陆</button>
+        </a>
+    </main>
+</main>
+<script>
+    const toastLiveExample = document.getElementById('liveToast')
+
+    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+    toastBootstrap.show()
+</script>
 </body>
 </html>

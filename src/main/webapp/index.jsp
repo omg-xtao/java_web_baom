@@ -17,10 +17,10 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>${title}</title>
-    <link rel="stylesheet" href="styles/bootstrap.min.css" crossorigin="anonymous">
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="styles/sidebar.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/index.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="${webroot}/styles/bootstrap.min.css" crossorigin="anonymous">
+    <script src="${webroot}/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="${webroot}/styles/sidebar.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="${webroot}/styles/index.css" crossorigin="anonymous">
 </head>
 <body>
 <main class="d-flex flex-nowrap">
@@ -59,7 +59,7 @@
                 <label for="password">密码</label>
             </div>
             <div class="form-floating">
-                <input type="text" class="form-control" name="code" id="code" value="${code}">
+                <input type="text" class="form-control" name="code" id="code">
                 <label for="code">验证码</label>
             </div>
             <br/>
