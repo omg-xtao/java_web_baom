@@ -12,34 +12,43 @@
 <%@ page isELIgnored="false" %>
 <c:set var="title" value="阶段定义"/>
 <c:set var="webroot" value="${pageContext.request.contextPath}"/>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>${title}</title>
-    <link rel="stylesheet" type="text/css" href="../styles/basic.css"/>
+    <link rel="stylesheet" href="${webroot}/styles/bootstrap.min.css" crossorigin="anonymous">
+    <script src="${webroot}/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="${webroot}/styles/sidebar.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="${webroot}/styles/index.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="${webroot}/styles/entry.css" crossorigin="anonymous">
 </head>
 <body>
-<%@ include file="../includes/header.jsp" %>
-<div id="content">
-    <div id="left">
-    </div>
-    <div id="right">
-        <h1>${title}</h1>
-        <div class="operation">已定义阶段列表↓：
-            <span class="mess">
-                <c:if test="${'stageDeleteMess' eq sessionScope.mess.name}">${sessionScope.mess.content}</c:if>
-            </span>
-        </div>
-        <table class="dt" border="0" cellspacing="1">
+<main class="d-flex flex-nowrap">
+    <%@ include file="../includes/header.jsp" %>
+
+    <main class="form-signin w-100 m-auto scrollspy" style="min-width: 800px">
+        <img class="mb-4" src="${webroot}/images/logo.jpg" alt="" width="72" height="72">
+
+        <h1 class="h3 mb-3 fw-normal">已定义阶段列表</h1>
+
+        <c:if test="${'stageDeleteMess' eq sessionScope.mess.name}">
+            <div class="alert alert-warning" role="alert">
+                    ${sessionScope.mess.content}
+            </div>
+        </c:if>
+
+        <table class="table">
+            <thead>
             <tr>
-                <th>编号</th>
-                <th>阶段名称</th>
-                <th>开始时间</th>
-                <th>结束时间</th>
-                <th>阶段说明</th>
-                <th>删除</th>
+                <th scope="col">编号</th>
+                <th scope="col">阶段名称</th>
+                <th scope="col">开始时间</th>
+                <th scope="col">结束时间</th>
+                <th scope="col">阶段说明</th>
+                <th scope="col">删除</th>
             </tr>
+            </thead>
+            <tbody>
             <c:forEach items="${applicationScope.stages}" var="stage" varStatus="rows">
                 <tr>
                     <td style="width:40px;">${stage.stagenum}</td>
@@ -52,44 +61,44 @@
                     </td>
                 </tr>
             </c:forEach>
+            </tbody>
         </table>
-        <a name="add"></a>
-        <div class="operation">定义系统使用阶段↓：
-            <span class="mess">
-                <c:if test="${'stageAddMess' eq sessionScope.mess.name}"> ${sessionScope.mess.content}</c:if>
-            </span>
-        </div>
+
+        <h1 class="h3 mb-3 fw-normal">定义系统使用阶段</h1>
+        <c:if test="${'stageAddMess' eq sessionScope.mess.name}">
+            <div class="alert alert-warning" role="alert">
+                    ${sessionScope.mess.content}
+            </div>
+        </c:if>
+
         <form action="${webroot}/sadmin/stageadd.do?action=stageAdd" method="post">
-            <table>
-                <tr>
-                    <td class="label">阶段编号：</td>
-                    <td><input type="text" name="stagenum" id="stagenum"/></td>
-                </tr>
-                <tr>
-                    <td class="label">阶段名称：</td>
-                    <td><input type="text" name="stagename" id="stagename"/></td>
-                </tr>
-                <tr>
-                    <td class="label">开始时间：</td>
-                    <td><input type="datetime-local" name="starttime" id="starttime"/></td>
-                </tr>
-                <tr>
-                    <td class="label">结束时间：</td>
-                    <td><input type="datetime-local" name="endtime" id="endtime"/></td>
-                </tr>
-                <tr>
-                    <td class="label">阶段说明：</td>
-                    <td><input type="text" name="note" id="note"/></td>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        <input type="submit" value="提 交" class="button" id="submit"/>
-                        <input type="reset" value="重 置" class="button" id="reset"/>
-                    </td>
-                </tr>
-            </table>
+            <div class="input-group mb-3">
+                <span class="input-group-text">阶段编号</span>
+                <input type="text" class="form-control" name="stagenum" id="stagenum">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">阶段名称</span>
+                <input type="text" class="form-control" name="stagename" id="stagename">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">开始时间</span>
+                <input type="datetime-local" class="form-control" name="starttime" id="starttime">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">结束时间</span>
+                <input type="datetime-local" class="form-control" name="endtime" id="endtime">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">阶段说明</span>
+                <textarea class="form-control" aria-label="阶段说明" name="note" id="note"></textarea>
+            </div>
+
+            <input class="btn btn-primary w-100 py-2" type="submit" id="submit">
+            <br/><br/>
+            <input class="btn btn-primary w-100 py-2" type="reset" value="重置">
+            <br/><br/>
         </form>
-    </div>
-    <%@ include file="../includes/footer.jsp" %>
+    </main>
+</main>
 </body>
 </html>

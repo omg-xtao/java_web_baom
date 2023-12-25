@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * @author xtaod
  */
 @WebServlet("/sadmin/manage.do")
-public class AdminManage extends HttpServlet {
+public class SAdminManage extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html; charset=utf-8");
