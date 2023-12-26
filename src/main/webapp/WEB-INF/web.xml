@@ -21,6 +21,10 @@
         <filter-class>com.filter.ZAdminFilter</filter-class>
     </filter>
     <filter>
+        <filter-name>ZStageFilter</filter-name>
+        <filter-class>com.filter.StageFilter</filter-class>
+    </filter>
+    <filter>
         <filter-name>JAdminFilter</filter-name>
         <filter-class>com.filter.JAdminFilter</filter-class>
     </filter>
@@ -71,6 +75,10 @@
     <filter-mapping>
         <filter-name>SAdminFilter</filter-name>
         <url-pattern>/includes/sadmin/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>ZStageFilter</filter-name>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
     <listener>
         <listener-class>

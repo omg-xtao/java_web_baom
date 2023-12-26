@@ -18,7 +18,7 @@ import java.util.Iterator;
 /**
  * @author xtaod
  */
-@WebServlet("/jadmin/room.do")
+@WebServlet("/jadmin/assignroom.do")
 public class JAdminRoomNum extends HttpServlet {
 
     private void assign(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

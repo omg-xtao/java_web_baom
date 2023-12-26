@@ -17,7 +17,7 @@ import java.io.IOException;
 /**
  * @author xtaod
  */
-@WebServlet("/stu/entryPrint.do")
+@WebServlet("/stu/entry_print.do")
 public class StuEntryPrint extends HttpServletInit {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {

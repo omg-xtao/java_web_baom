@@ -21,7 +21,7 @@ import java.util.HashMap;
 /**
  * @author xtaod
  */
-@WebServlet("/jadmin/cardnum.do")
+@WebServlet("/jadmin/assignnum.do")
 public class JAdminCardNum extends HttpServlet {
     private String cardNumPre;
     HashMap<String, String> majorCodeMap = new HashMap<>();

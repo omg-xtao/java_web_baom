@@ -12,13 +12,13 @@
 <%@ page isELIgnored="false" %>
 <c:set var="webroot" value="${pageContext.request.contextPath}"/>
 <ul class="nav nav-pills flex-column mb-auto">
-    <li class="nav-item">
-        <a href="${webroot}/" class="nav-link link-body-emphasis" aria-current="page">
-            >> 主页
-        </a>
-    </li>
     <c:choose>
         <c:when test="${not empty sessionScope.username}">
+            <li class="nav-item">
+                <a href="${webroot}/stu/notice.jsp" class="nav-link link-body-emphasis" aria-current="page">
+                    >> 主页
+                </a>
+            </li>
             <li class="nav-item">
                 <a href="${webroot}/stu/entry.do" class="nav-link link-body-emphasis" aria-current="page">
                     >> 我的报名信息
@@ -68,7 +68,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="${webroot}/admin/reginfomanage.do" class="nav-link link-body-emphasis" aria-current="page">
+                <a href="${webroot}/admin/infomanage.do" class="nav-link link-body-emphasis" aria-current="page">
                     >> 查看报名信息
                 </a>
             </li>
@@ -96,7 +96,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="${webroot}/admin/reginfomanage.do" class="nav-link link-body-emphasis" aria-current="page">
+                <a href="${webroot}/admin/infomanage.do" class="nav-link link-body-emphasis" aria-current="page">
                     >> 查看报名信息
                 </a>
             </li>
@@ -129,7 +129,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="${webroot}/jadmin/cardnum.do" class="nav-link link-body-emphasis" aria-current="page">
+                <a href="${webroot}/jadmin/assignnum.do" class="nav-link link-body-emphasis" aria-current="page">
                     >> 准考证号分配
                 </a>
             </li>
@@ -144,7 +144,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="${webroot}/admin/reginfomanage.do" class="nav-link link-body-emphasis" aria-current="page">
+                <a href="${webroot}/admin/infomanage.do" class="nav-link link-body-emphasis" aria-current="page">
                     >> 查看报名信息
                 </a>
             </li>
@@ -154,5 +154,12 @@
                 </a>
             </li>
         </c:when>
+        <c:otherwise>
+            <li class="nav-item">
+                <a href="${webroot}/" class="nav-link link-body-emphasis" aria-current="page">
+                    >> 主页
+                </a>
+            </li>
+        </c:otherwise>
     </c:choose>
 </ul>

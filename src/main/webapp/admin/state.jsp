@@ -29,6 +29,12 @@
         <img class="mb-4" src="${webroot}/images/logo.jpg" alt="" width="72" height="72">
         <h1 class="h3 mb-3 fw-normal">${title}</h1>
 
+        <c:if test="${not empty requestScope.Mess}">
+            <div class="alert alert-warning" role="alert">
+                    ${requestScope.Mess}
+            </div>
+        </c:if>
+
         <div class="alert alert-primary" role="alert">
             系统当前处于 ${applicationScope.currstage.stagename} 阶段
         </div>

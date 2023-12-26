@@ -35,7 +35,7 @@
             </div>
         </c:if>
 
-        <form action="${webroot}/jadmin/room.do?action=assign" method="post">
+        <form action="${webroot}/jadmin/assignroom.do?action=assign" method="post">
             <div class="input-group mb-3">
                 <span class="input-group-text">单考场人数</span>
                 <input type="text" class="form-control" name="perRoom" id="perRoom" required>
@@ -46,7 +46,7 @@
         </form>
 
         <c:if test="${room > 0}">
-            <form action="${webroot}/jadmin/room.do?action=assure" method="post">
+            <form action="${webroot}/jadmin/assignroom.do?action=assure" method="post">
 
                 <table class="table">
                     <thead>

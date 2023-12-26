@@ -14,7 +14,7 @@ import java.io.IOException;
 /**
  * @author xtaod
  */
-@WebServlet("/admin/reginfomanage.do")
+@WebServlet("/admin/infomanage.do")
 public class AdminReginfoManage extends HttpServlet {
     private void request(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int pageSize = request.getParameter("pageSize") == null ? 5 : Integer.parseInt(request.getParameter("pageSize"));

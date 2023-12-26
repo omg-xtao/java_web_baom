@@ -28,6 +28,12 @@
 
     <main class="form-signin w-100 m-auto">
         <h1 class="h3 mb-3 fw-normal">请点击右侧菜单进入对应的功能</h1>
+
+        <c:if test="${not empty requestScope.Mess}">
+            <div class="alert alert-warning" role="alert">
+                    ${requestScope.Mess}
+            </div>
+        </c:if>
     </main>
 </main>
 </body>
