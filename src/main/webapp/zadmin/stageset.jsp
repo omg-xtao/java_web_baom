@@ -40,7 +40,7 @@
         <form action="${webroot}/zadmin/stageset.do?action=stageSet" method="post">
             <div class="input-group mb-3">
                 <span class="input-group-text">选择阶段</span>
-                <select class="form-select" name="currstage" id="currstage">
+                <select class="form-select" name="currstage" id="currstage" required>
                     <c:forEach items="${applicationScope.stages}" var="stage">
                         <c:choose>
                             <c:when test="${ stage.stagename eq applicationScope.currstage.stagename }">

@@ -73,18 +73,18 @@
             <div class="input-group mb-3">
                 <span class="input-group-text">用户名</span>
                 <input type="text" class="form-control" name="adminname" id="adminname"
-                       value="${requestScope.newadmin.adminname}">
+                       value="${requestScope.newadmin.adminname}" required>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">用户组</span>
-                <select class="form-select" name="admingroup" id="admingroup">
+                <select class="form-select" name="admingroup" id="admingroup" required>
                     <option value="招生管理员" selected="selected">招生管理员</option>
                     <option value="教务管理员">教务管理员</option>
                 </select>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">初始密码</span>
-                <input type="password" class="form-control" name="adminpass" id="adminpass">
+                <input type="password" class="form-control" name="adminpass" id="adminpass" required>
             </div>
             <input class="btn btn-primary w-100 py-2" type="submit" id="submit">
             <br/><br/>

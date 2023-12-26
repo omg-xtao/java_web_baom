@@ -39,7 +39,7 @@
         <form action="${webroot}/zadmin/confirm.do" method="post">
             <div class="input-group mb-3">
                 <span class="input-group-text">身份证号</span>
-                <input type="text" class="form-control" name="idCode" id="idCode" value="${idCode}">
+                <input type="text" class="form-control" name="idCode" id="idCode" value="${idCode}" required>
             </div>
 
             <input class="btn btn-primary w-100 py-2" type="submit" id="submit" value="查询">

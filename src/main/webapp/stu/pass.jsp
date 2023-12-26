@@ -37,19 +37,21 @@
             </c:if>
 
             <div class="form-floating">
-                <input type="password" class="form-control" name="oldPassword" id="oldPassword" value="${oldPassword}">
+                <input type="password" class="form-control" name="oldPassword" id="oldPassword" value="${oldPassword}"
+                       required>
                 <label for="oldPassword">旧密码</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" name="password" id="password" value="${password}">
+                <input type="password" class="form-control" name="password" id="password" value="${password}" required>
                 <label for="password">密码</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" name="confirmpass" id="confirmpass" value="${confirmpass}">
+                <input type="password" class="form-control" name="confirmpass" id="confirmpass" value="${confirmpass}"
+                       required>
                 <label for="confirmpass">确认密码</label>
             </div>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="验证码" name="code" id="code">
+                <input type="text" class="form-control" placeholder="验证码" name="code" id="code" required>
                 <span class="input-group-text">
                                 <img src="${pageContext.request.contextPath}/includes/code.jsp" id="imagecode"
                                      title="点击图片可刷新验证码"

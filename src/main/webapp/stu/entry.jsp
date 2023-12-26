@@ -41,7 +41,7 @@
             <h5>报考信息</h5>
             <div class="input-group mb-3">
                 <span class="input-group-text">报考专业</span>
-                <select class="form-select" name="mname" id="mname">
+                <select class="form-select" name="mname" id="mname" required>
                     <c:forEach items="${applicationScope.majors}" var="major">
                         <c:choose>
                             <c:when test="${major.mname == requestScope.reginfo.mname}">
@@ -58,11 +58,12 @@
             <h5>个人基本信息</h5>
             <div class="input-group mb-3">
                 <span class="input-group-text">姓名</span>
-                <input type="text" class="form-control" name="sname" id="sname" value="${requestScope.reginfo.sname}">
+                <input type="text" class="form-control" name="sname" id="sname" value="${requestScope.reginfo.sname}"
+                       required>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">性别</span>
-                <select class="form-select" name="ssex" id="ssex">
+                <select class="form-select" name="ssex" id="ssex" required>
                     <c:choose>
                         <c:when test="${requestScope.reginfo.ssex == '男'}">
                             <option value="男" selected='selected'>男</option>
@@ -78,21 +79,21 @@
             <div class="input-group mb-3">
                 <span class="input-group-text">出生日期</span>
                 <input type="date" class="form-control" name="birthday" id="birthday"
-                       value="${requestScope.reginfo.birthday}">
+                       value="${requestScope.reginfo.birthday}" required>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">民族</span>
                 <input type="text" class="form-control" name="nation" id="nation"
-                       value="${requestScope.reginfo.nation}">
+                       value="${requestScope.reginfo.nation}" required>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">身份证号</span>
                 <input type="text" class="form-control" name="idcode" id="idcode"
-                       value="${requestScope.reginfo.idcode}">
+                       value="${requestScope.reginfo.idcode}" required>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">政治面貌</span>
-                <select class="form-select" name="political" id="political">
+                <select class="form-select" name="political" id="political" required>
                     <c:set var="politicals" value="${{'群众', '共青团员', '共产党员'}}"/>
                     <c:forEach items="${politicals}" var="pol">
                         <c:choose>
@@ -109,27 +110,27 @@
             <div class="input-group mb-3">
                 <span class="input-group-text">生源地</span>
                 <input type="text" class="form-control" name="source" id="source"
-                       value="${requestScope.reginfo.source}">
+                       value="${requestScope.reginfo.source}" required>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">家庭住址</span>
                 <input type="text" class="form-control" name="homeaddr" id="homeaddr"
-                       value="${requestScope.reginfo.homeaddr}">
+                       value="${requestScope.reginfo.homeaddr}" required>
             </div>
             <h5>教育背景</h5>
             <div class="input-group mb-3">
                 <span class="input-group-text">毕业院校</span>
                 <input type="text" class="form-control" name="school" id="school"
-                       value="${requestScope.reginfo.school}">
+                       value="${requestScope.reginfo.school}" required>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">毕业时间</span>
                 <input type="date" class="form-control" name="gradutetime" id="gradutetime"
-                       value="${requestScope.reginfo.gradutetime}">
+                       value="${requestScope.reginfo.gradutetime}" required>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">是否应届</span>
-                <select class="form-select" ame="isnew" id="isnew">
+                <select class="form-select" name="isnew" id="isnew" required>
                     <c:choose>
                         <c:when test="${requestScope.reginfo.isnew}">
                             <option value="1" selected='selected'>应届</option>
@@ -144,7 +145,7 @@
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">文理科</span>
-                <select class="form-select" name="aos" id="aos">
+                <select class="form-select" name="aos" id="aos" required>
                     <c:choose>
                         <c:when test="${requestScope.reginfo.aos == '理科'}">
                             <option value="理科" selected='selected'>理科</option>
@@ -159,11 +160,12 @@
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">所学专业</span>
-                <input type="text" class="form-control" name="major" id="major" value="${requestScope.reginfo.major}">
+                <input type="text" class="form-control" name="major" id="major" value="${requestScope.reginfo.major}"
+                       required>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">英语等级</span>
-                <select class="form-select" name="cet" id="cet">
+                <select class="form-select" name="cet" id="cet" required>
                     <c:set var="cets" value="${{'无', '四级', '六级'}}"/>
                     <c:forEach items="${cets}" var="cet">
                         <c:choose>
@@ -181,27 +183,27 @@
             <div class="input-group mb-3">
                 <span class="input-group-text">收件人姓名</span>
                 <input type="text" class="form-control" name="receiver" id="receiver"
-                       value="${requestScope.reginfo.receiver}">
+                       value="${requestScope.reginfo.receiver}" required>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">收件人地址</span>
                 <input type="text" class="form-control" name="conaddr" id="conaddr"
-                       value="${requestScope.reginfo.conaddr}">
+                       value="${requestScope.reginfo.conaddr}" required>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">邮编</span>
                 <input type="text" class="form-control" name="zipcode" id="zipcode"
-                       value="${requestScope.reginfo.zipcode}">
+                       value="${requestScope.reginfo.zipcode}" required>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">手机号</span>
                 <input type="text" class="form-control" name="mobile" id="mobile"
-                       value="${requestScope.reginfo.mobile}">
+                       value="${requestScope.reginfo.mobile}" required>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">备用电话</span>
                 <input type="text" class="form-control" name="telphone" id="telphone"
-                       value="${requestScope.reginfo.telphone}">
+                       value="${requestScope.reginfo.telphone}" required>
             </div>
 
             <input class="btn btn-primary w-100 py-2" type="submit" id="submit" value="保存并下一步">

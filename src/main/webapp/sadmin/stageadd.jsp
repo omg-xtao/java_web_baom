@@ -74,23 +74,23 @@
         <form action="${webroot}/sadmin/stageadd.do?action=stageAdd" method="post">
             <div class="input-group mb-3">
                 <span class="input-group-text">阶段编号</span>
-                <input type="text" class="form-control" name="stagenum" id="stagenum">
+                <input type="text" class="form-control" name="stagenum" id="stagenum" required>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">阶段名称</span>
-                <input type="text" class="form-control" name="stagename" id="stagename">
+                <input type="text" class="form-control" name="stagename" id="stagename" required>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">开始时间</span>
-                <input type="datetime-local" class="form-control" name="starttime" id="starttime">
+                <input type="datetime-local" class="form-control" name="starttime" id="starttime" required>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">结束时间</span>
-                <input type="datetime-local" class="form-control" name="endtime" id="endtime">
+                <input type="datetime-local" class="form-control" name="endtime" id="endtime" required>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">阶段说明</span>
-                <textarea class="form-control" aria-label="阶段说明" name="note" id="note"></textarea>
+                <textarea class="form-control" aria-label="阶段说明" name="note" id="note" required></textarea>
             </div>
 
             <input class="btn btn-primary w-100 py-2" type="submit" id="submit">

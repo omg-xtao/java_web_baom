@@ -38,7 +38,7 @@
 
             <div>
                 <label for="formFileLg" class="form-label">请您上传照片</label>
-                <input class="form-control form-control-lg" id="formFileLg" type="file" name="myfile">
+                <input class="form-control form-control-lg" id="formFileLg" type="file" name="myfile" required>
             </div>
             <br/><br/>
             <input class="btn btn-primary w-100 py-2" type="submit" id="submit">

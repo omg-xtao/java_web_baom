@@ -38,7 +38,7 @@
         <form action="${webroot}/jadmin/room.do?action=assign" method="post">
             <div class="input-group mb-3">
                 <span class="input-group-text">单考场人数</span>
-                <input type="text" class="form-control" name="perRoom" id="perRoom">
+                <input type="text" class="form-control" name="perRoom" id="perRoom" required>
             </div>
 
             <input class="btn btn-primary w-100 py-2" type="submit" id="submit" value="分配考场">
@@ -65,7 +65,7 @@
                                 <td>
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">考场号</span>
-                                        <input type="text" class="form-control" name="rooms" id="rooms">
+                                        <input type="text" class="form-control" name="rooms" id="rooms" required>
                                     </div>
                                 </td>
                             </tr>
@@ -76,7 +76,7 @@
                             <td>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">考场号</span>
-                                    <input type="text" class="form-control" name="rooms" id="rooms">
+                                    <input type="text" class="form-control" name="rooms" id="rooms" required>
                                 </div>
                             </td>
                         </tr>

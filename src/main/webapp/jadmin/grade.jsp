@@ -54,7 +54,7 @@
                 <th scope="col">序号</th>
                 <th scope="col">准考证号</th>
                 <th scope="col">姓名</th>
-                <th scope="col">课程名称</th>
+                <th scope="col">科目名称</th>
                 <th scope="col">成绩</th>
             </tr>
             </thead>

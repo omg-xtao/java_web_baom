@@ -127,7 +127,7 @@
             <br/><br/>
         </form>
 
-        <h1 class="h3 mb-3 fw-normal">已添加的课程</h1>
+        <h1 class="h3 mb-3 fw-normal">已添加的科目</h1>
         <c:if test="${'courseDeleteMess' eq sessionScope.mess.name}">
             <div class="alert alert-warning" role="alert">
                     ${sessionScope.mess.content}
@@ -137,12 +137,12 @@
             <thead>
             <tr>
                 <th scope="col">序号</th>
-                <th scope="col">课程编号</th>
-                <th scope="col">课程名称</th>
+                <th scope="col">科目编号</th>
+                <th scope="col">科目名称</th>
                 <th scope="col">隶属专业</th>
                 <th scope="col">考试开始时间</th>
                 <th scope="col">考试结束时间</th>
-                <th scope="col">删除课程</th>
+                <th scope="col">删除科目</th>
             </tr>
             </thead>
             <tbody>
@@ -160,7 +160,7 @@
             </tbody>
         </table>
 
-        <h1 class="h3 mb-3 fw-normal">添加课程</h1>
+        <h1 class="h3 mb-3 fw-normal">添加科目</h1>
         <c:if test="${'courseAddMess' eq sessionScope.mess.name}">
             <div class="alert alert-warning" role="alert">
                     ${sessionScope.mess.content}
@@ -168,11 +168,11 @@
         </c:if>
         <form action="${webroot}/zadmin/release.do?action=courseAdd" method="post">
             <div class="input-group mb-3">
-                <span class="input-group-text">课程编号</span>
+                <span class="input-group-text">科目编号</span>
                 <input type="text" class="form-control" name="ccode" id="ccode">
             </div>
             <div class="input-group mb-3">
-                <span class="input-group-text">课程名称</span>
+                <span class="input-group-text">科目名称</span>
                 <input type="text" class="form-control" name="cname" id="cname">
             </div>
             <div class="input-group mb-3">

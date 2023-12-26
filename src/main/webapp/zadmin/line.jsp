@@ -39,7 +39,7 @@
         <form action="${webroot}/zadmin/line.do" method="get">
             <div class="input-group mb-3">
                 <span class="input-group-text">专业</span>
-                <select class="form-select" name="mcode" id="mcode">
+                <select class="form-select" name="mcode" id="mcode" required>
                     <c:forEach items="${majors}" var="major">
                         <c:choose>
                             <c:when test="${major.mcode eq mcode}">
@@ -62,7 +62,7 @@
             <form action="${webroot}/zadmin/line.do?mcode=${mcode}" method="post">
                 <div class="input-group mb-3">
                     <span class="input-group-text">分数线</span>
-                    <input type="text" class="form-control" name="passcode" id="passcode" value="${passcode}"/>
+                    <input type="text" class="form-control" name="passcode" id="passcode" value="${passcode}" required>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">当前分数线预计可录取人数</span>
