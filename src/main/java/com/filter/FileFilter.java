@@ -15,7 +15,7 @@ public class FileFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpSession session = req.getSession();
 
-        String reqPath = req.getRequestURI();
+        String reqPath = req.getServletPath();
         ArrayList<String> allowPath = new ArrayList<>();
         allowPath.add("/upload/" + session.getAttribute("username") + ".jpg");
         allowPath.add("/upload/zkz/" + session.getAttribute("username") + ".pdf");
