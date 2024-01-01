@@ -23,6 +23,9 @@ public class StuCardPrint extends HttpServletInit {
         String realPath = req.getServletContext().getRealPath("/");
         ReginfoDao reginfoDao = new ReginfoDaoImpl();
         Reginfo reginfo = reginfoDao.findByUser(username);
+        if (reginfo == null) {
+            return;
+        }
         CardGenXlsx cardGenXlsx = new CardGenXlsx(realPath, reginfo.getPhoto(), username);
         cardGenXlsx.gen(reginfo, req);
         cardGenXlsx.get(resp.getOutputStream());

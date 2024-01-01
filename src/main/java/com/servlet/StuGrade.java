@@ -26,6 +26,9 @@ public class StuGrade extends HttpServletInit {
         ReginfoDao reginfoDao = new ReginfoDaoImpl();
         GradeDao gradeDao = new GradeDaoImpl();
         Reginfo reginfo = reginfoDao.findByUser(username);
+        if (reginfo == null) {
+            return;
+        }
         ArrayList<Grade> grades = gradeDao.findByTestcardnum(reginfo.getTestcardnum());
         req.setAttribute("isAdmit", reginfo.getIsadmit() ? "true" : "false");
         req.setAttribute("mname", reginfo.getMname());

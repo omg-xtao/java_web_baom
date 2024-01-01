@@ -101,7 +101,6 @@ public class StageFilter implements Filter {
     HashMap<Integer, ArrayList<String>> getStageNumDisallowMap() {
         HashMap<Integer, ArrayList<String>> map = new HashMap<>();
         // 招考信息发布
-        /// allStage 去除 ZAdminStage.Release.getPath()
         ArrayList<String> stage1 = new ArrayList<>(allStage);
         stage1.remove(ZAdminStage.Release.getPath());
         // 在线报名
@@ -163,7 +162,7 @@ public class StageFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpSession session = req.getSession();
 
-        String notice = "* 当前所处阶段不允许此操作";
+        String notice = "* 系统当前所处阶段不允许此操作";
         if (session.getAttribute("username") != null) {
             // 学生
             req.setAttribute("Mess", notice);
@@ -181,7 +180,7 @@ public class StageFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        String reqPath = ((HttpServletRequest) request).getRequestURI();
+        String reqPath = ((HttpServletRequest) request).getServletPath();
         ArrayList<String> disallowMap = getStageDisallowMap(request.getServletContext());
         if (disallowMap == null) {
             chain.doFilter(request, response);

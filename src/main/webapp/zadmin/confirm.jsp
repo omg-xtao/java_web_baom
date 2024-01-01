@@ -67,7 +67,14 @@
                         <td>${reginfo.ssex}</td>
                         <td>${reginfo.isnew}</td>
                         <td>${reginfo.mname}</td>
-                        <td>${reginfo.isconfirm}</td>
+                        <c:choose>
+                            <c:when test="${reginfo.isconfirm}">
+                                <td>是</td>
+                            </c:when>
+                            <c:otherwise>
+                                <td>否</td>
+                            </c:otherwise>
+                        </c:choose>
                         <td>
                             <input type="hidden" name="username" id="username" value="${reginfo.username}"/>
                             <input type="hidden" name="idcode" id="idCode" value="${reginfo.idcode}"/>

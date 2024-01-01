@@ -24,7 +24,7 @@ public class StuEntryPrint extends HttpServletInit {
         String username = req.getSession().getAttribute("username").toString();
         ReginfoDao reginfoDao = new ReginfoDaoImpl();
         Reginfo reginfo = reginfoDao.findByUser(username);
-        if (reginfo.getPhoto() != null && !reginfo.getPhoto().isEmpty()) {
+        if (reginfo != null && reginfo.getPhoto() != null && !reginfo.getPhoto().isEmpty()) {
             ServletContext context = req.getServletContext();
             EntryGenXlsx entryGenXlsx = new EntryGenXlsx(context.getRealPath("/"), null, username);
             response.setHeader("Pragma", "No-cache");

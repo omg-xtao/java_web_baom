@@ -17,7 +17,8 @@
         <div class="dropdown">
             <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
                data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="${webroot}/images/logo.jpg" alt="" width="32" height="32" class="rounded-circle me-2">
+                <img src="${webroot}/upload/${sessionScope.username}.jpg" alt="" width="32" height="32"
+                     class="rounded-circle me-2">
                 <strong>${sessionScope.username}</strong>
             </a>
             <ul class="dropdown-menu text-small shadow">

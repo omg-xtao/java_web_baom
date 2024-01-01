@@ -30,7 +30,7 @@
         <h1 class="h3 mb-3 fw-normal">${title}</h1>
 
         <br/>
-        <a href="${webroot}/stu/entryPrint.do">
+        <a href="${webroot}/stu/entry_print.do">
             <button type="button" class="btn btn-primary btn-lg">下载报名表</button>
         </a>
     </main>

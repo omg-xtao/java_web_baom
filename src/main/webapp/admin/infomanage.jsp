@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="${webroot}/styles/bootstrap.min.css" crossorigin="anonymous">
     <script src="${webroot}/js/bootstrap.bundle.min.js"></script>
     <script src="${webroot}/js/record.js"></script>
+    <script src="${webroot}/js/echarts.min.js"></script>
     <link rel="stylesheet" href="${webroot}/styles/sidebar.css" crossorigin="anonymous">
     <link rel="stylesheet" href="${webroot}/styles/index.css" crossorigin="anonymous">
     <link rel="stylesheet" href="${webroot}/styles/entry.css" crossorigin="anonymous">
@@ -52,6 +53,8 @@
             </c:forEach>
             </tbody>
         </table>
+
+        <div id="chart" style="height: 600px"></div>
 
         <h1 class="h3 mb-3 fw-normal">查看报名信息</h1>
         <form action="${webroot}/admin/infomanage.do" method="post">
@@ -108,5 +111,6 @@
         ${pm.pageNav}
     </main>
 </main>
+<%@ include file="../includes/infomanage.jsp" %>
 </body>
 </html>
