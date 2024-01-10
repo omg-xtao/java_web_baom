@@ -23,6 +23,8 @@ public class CountListener implements HttpSessionListener {
     public void sessionDestroyed(javax.servlet.http.HttpSessionEvent se) {
         ServletContext context = se.getSession().getServletContext();
         Integer count = (Integer) context.getAttribute("count");
-        context.setAttribute("count", count - 1);
+        if (count != null) {
+            context.setAttribute("count", count - 1);
+        }
     }
 }
