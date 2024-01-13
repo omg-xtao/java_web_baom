@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-        <form action="${webroot}/login.do" method="post">
+        <form action="${webroot}/login.do" method="post" >
             <img class="mb-4" src="${webroot}/images/logo.jpg" alt="" width="72" height="72">
             <h1 class="h3 mb-3 fw-normal">请先登录</h1>
 
@@ -75,6 +75,7 @@
         </a>
     </main>
 </main>
+<script src="${webroot}/js/pass.js" type="javascript"></script>
 <script>
     const toastLiveExample = document.getElementById('liveToast')
 

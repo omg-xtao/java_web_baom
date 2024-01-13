@@ -64,5 +64,6 @@
         </form>
     </main>
 </main>
+<script src="${webroot}/js/pass.js"></script>
 </body>
 </html>

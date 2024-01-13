@@ -29,6 +29,12 @@
         <img class="mb-4" src="${webroot}/images/logo.jpg" alt="" width="72" height="72">
         <h1 class="h3 mb-3 fw-normal">${title}</h1>
 
+        <c:if test="${not empty requestScope.stuEntryPrintMess}">
+            <div class="alert alert-warning" role="alert">
+                    ${requestScope.stuEntryPrintMess}
+            </div>
+        </c:if>
+
         <br/>
         <a href="${webroot}/stu/entry_print.do">
             <button type="button" class="btn btn-primary btn-lg">下载报名表</button>
