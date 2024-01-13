@@ -26,14 +26,20 @@
 <main class="d-flex flex-nowrap">
     <%@ include file="../includes/header.jsp" %>
 
-    <main class="form-signin w-100 m-auto">
-        <h1 class="h3 mb-3 fw-normal">请点击右侧菜单进入对应的功能</h1>
+    <main class="form-signin w-100 m-auto" style="max-width: 600px;">
+        <h1 class="h3 mb-3 fw-normal">报考须知</h1>
 
         <c:if test="${not empty requestScope.Mess}">
             <div class="alert alert-warning" role="alert">
                     ${requestScope.Mess}
             </div>
         </c:if>
+
+        <div>
+            <c:forEach items="${applicationScope.stages}" var="stage">
+                <p>${stage.stagenum}、${stage.stagename}时间：${stage.starttime} - ${stage.endtime}：${stage.note}</p>
+            </c:forEach>
+        </div>
     </main>
 </main>
 </body>
